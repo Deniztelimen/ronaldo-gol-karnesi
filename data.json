@@ -42,12 +42,12 @@
     {
       "name": "Al-Nassr",
       "years": "2023–günümüz",
-      "apps": 108,
-      "goals": 103,
-      "assists": 20,
+      "apps": 141,
+      "goals": 127,
+      "assists": 22,
       "approx": true,
       "live": true,
-      "note": "Devam ediyor — her maçtan sonra otomatik güncellenir."
+      "note": "Devam ediyor — Suudi Pro Lig maçları her gün otomatik kontrol edilir."
     },
     {
       "name": "Portekiz Milli Takımı",
@@ -57,7 +57,26 @@
       "assists": 43,
       "approx": true,
       "live": true,
-      "note": "Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu."
+      "note": "Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu. Gol/maç sayısı haftalık otomatik kontrol edilir; asist sayısı elle tahmindir."
     }
-  ]
+  ],
+  "liveConfig": {
+    "source": "SportAPI7 (Sofascore verisi, RapidAPI üzerinden)",
+    "playerId": 750,
+    "alNassr": {
+      "frozenThroughSeason": "25/26",
+      "frozenGoals": 126,
+      "frozenAssists": 22,
+      "frozenApps": 140,
+      "currentSeason": {
+        "label": "Saudi Pro League 26/27",
+        "uniqueTournamentId": 955,
+        "seasonId": 99275
+      }
+    },
+    "portugal": {
+      "teamId": 4704
+    },
+    "note": "frozen* değerleri 2026-08-22'de tüm geçmiş sezon/turnuvalar (lig+kupa+ACL) tek tek toplanarak hesaplandı. Otomasyon sadece güncel sezonun üstüne ekliyor; yeni sezon başladığında bu değerlerin ve seasonId'nin elle güncellenmesi gerekir."
+  }
 }
