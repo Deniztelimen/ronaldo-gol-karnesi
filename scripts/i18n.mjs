@@ -190,6 +190,7 @@ export const ui = {
       "Rakamlar kapanmış dönemler için (Sporting–Juventus, ilk Man United dönemi) istikrarlı kabul edilir; Al-Nassr ve Portekiz satırları hâlâ oynadığı için yaklaşıktır ve her maç sonrası otomatik olarak yeniden hesaplanır.",
     footerUpdated: "Son güncelleme: {{AS_OF_DATE}}",
     langSwitchLabel: "Dil seçin",
+    lastGoalLabel: "Son gol: {{DATE}}",
   },
   en: {
     pageTitle: "How Many Goals Has Ronaldo Scored? — Live Goal Tracker",
@@ -227,6 +228,7 @@ export const ui = {
       "Figures for closed chapters (Sporting through Juventus, his first Manchester United spell) are treated as final; the Al-Nassr and Portugal rows are still active, so they're approximate and recalculated automatically after every match.",
     footerUpdated: "Last updated: {{AS_OF_DATE}}",
     langSwitchLabel: "Select language",
+    lastGoalLabel: "Last goal: {{DATE}}",
   },
   de: {
     pageTitle: "Wie viele Tore hat Ronaldo geschossen? — Live-Torzähler",
@@ -264,6 +266,7 @@ export const ui = {
       "Zahlen für abgeschlossene Kapitel (Sporting bis Juventus, die erste Zeit bei Manchester United) gelten als endgültig; die Zeilen zu Al-Nassr und Portugal sind noch aktiv, daher ungefähr, und werden nach jedem Spiel automatisch neu berechnet.",
     footerUpdated: "Zuletzt aktualisiert: {{AS_OF_DATE}}",
     langSwitchLabel: "Sprache wählen",
+    lastGoalLabel: "Letztes Tor: {{DATE}}",
   },
   zh: {
     pageTitle: "罗纳尔多进了多少球？— 实时进球统计",
@@ -301,6 +304,7 @@ export const ui = {
       "已结束阶段（葡萄牙体育至尤文图斯，以及第一次效力曼联期间）的数据视为最终数据；阿尔纳斯尔和葡萄牙国家队的数据因仍在进行中而为近似值，每场比赛后会自动重新计算。",
     footerUpdated: "最后更新：{{AS_OF_DATE}}",
     langSwitchLabel: "选择语言",
+    lastGoalLabel: "最近一球：{{DATE}}",
   },
   ru: {
     pageTitle: "Сколько голов забил Роналду? — Счётчик голов в реальном времени",
@@ -338,6 +342,7 @@ export const ui = {
       "Данные по завершённым этапам карьеры («Спортинг» — «Ювентус», первый период в «Манчестер Юнайтед») считаются окончательными; строки «Аль-Насра» и сборной Португалии всё ещё активны, поэтому являются приблизительными и автоматически пересчитываются после каждого матча.",
     footerUpdated: "Обновлено: {{AS_OF_DATE}}",
     langSwitchLabel: "Выбрать язык",
+    lastGoalLabel: "Последний гол: {{DATE}}",
   },
   fr: {
     pageTitle: "Combien de buts a marqué Ronaldo ? — Compteur de buts en direct",
@@ -375,6 +380,7 @@ export const ui = {
       "Les chiffres des chapitres clos (du Sporting à la Juventus, ainsi que son premier passage à Manchester United) sont considérés comme définitifs ; les lignes Al-Nassr et Portugal restent actives, donc approximatives, et sont recalculées automatiquement après chaque match.",
     footerUpdated: "Dernière mise à jour : {{AS_OF_DATE}}",
     langSwitchLabel: "Choisir la langue",
+    lastGoalLabel: "Dernier but : {{DATE}}",
   },
   it: {
     pageTitle: "Quanti gol ha segnato Ronaldo? — Contatore gol in tempo reale",
@@ -412,6 +418,7 @@ export const ui = {
       "I dati relativi ai capitoli conclusi (dallo Sporting alla Juventus, incluso il primo periodo al Manchester United) sono considerati definitivi; le righe di Al-Nassr e Portogallo sono ancora attive, quindi approssimative, e vengono ricalcolate automaticamente dopo ogni partita.",
     footerUpdated: "Ultimo aggiornamento: {{AS_OF_DATE}}",
     langSwitchLabel: "Seleziona lingua",
+    lastGoalLabel: "Ultimo gol: {{DATE}}",
   },
   pt: {
     pageTitle: "Quantos golos já marcou Ronaldo? — Contador de golos em direto",
@@ -449,5 +456,6 @@ export const ui = {
       "Os números dos capítulos já encerrados (Sporting até Juventus, incluindo a primeira passagem pelo Manchester United) são considerados definitivos; as linhas do Al-Nassr e da Seleção continuam ativas, por isso são aproximadas e recalculadas automaticamente após cada jogo.",
     footerUpdated: "Última atualização: {{AS_OF_DATE}}",
     langSwitchLabel: "Escolher idioma",
+    lastGoalLabel: "Último golo: {{DATE}}",
   },
 };

@@ -379,6 +379,33 @@
 
   section.timeline { margin-bottom: 2rem; }
 
+  .timeline-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-head h2 { margin: 0; }
+
+  .last-goal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.35em 0.75em;
+  }
+
+  .last-goal-badge::before { content: "●"; font-size: 0.6em; color: var(--red); }
+
   /* ---------- Club cards ---------- */
 
   .cards { display: flex; flex-direction: column; gap: 0.65rem; }
@@ -682,7 +709,10 @@
   </header>
 
   <section class="timeline">
-    <h2>Карьера по клубам</h2>
+    <div class="timeline-head">
+      <h2>Карьера по клубам</h2>
+      
+    </div>
 
     <div class="cards">
             <div class="card">

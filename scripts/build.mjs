@@ -110,10 +110,10 @@ function fillTemplate(html, replacements) {
   return out;
 }
 
-function localizedDate(intl) {
-  // data.asOf her zaman "YYYY-MM-DD" (ISO) — her dilde o dile özgü
-  // biçimde (ör. "22 August 2026" / "22. August 2026") gösterilir.
-  const d = new Date(`${data.asOf}T00:00:00Z`);
+function localizedDate(intl, isoDate = data.asOf) {
+  // ISO ("YYYY-MM-DD") bir tarihi her dilde o dile özgü biçimde
+  // (ör. "22 August 2026" / "22. August 2026") gösterir.
+  const d = new Date(`${isoDate}T00:00:00Z`);
   return d.toLocaleDateString(intl, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 }
 
@@ -146,6 +146,10 @@ function buildLocale(locale) {
     .replace("{{GOALS_REMAINING}}", remainingFmt);
   const faq3A = t.faq3A.replace("{{TOTAL_ASSISTS}}", totalAssistsFmt);
 
+  const lastGoalBadge = data.lastGoalDate
+    ? `<span class="last-goal-badge">${t.lastGoalLabel.replace("{{DATE}}", localizedDate(intl, data.lastGoalDate))}</span>`
+    : "";
+
   const replacements = {
     "{{HTML_LANG}}": locale.code,
     "{{PAGE_TITLE}}": t.pageTitle,
@@ -166,6 +170,7 @@ function buildLocale(locale) {
     "{{HERO_CAPTION}}": t.heroCaption,
     "{{AS_OF_BADGE}}": asOfBadge,
     "{{SECTION_TIMELINE_TITLE}}": t.sectionTimelineTitle,
+    "{{LAST_GOAL_BADGE}}": lastGoalBadge,
     "{{CLUB_ROWS}}": rowsHtml,
     "{{TOTAL_CARD_LABEL}}": t.totalCardLabel,
     "{{TOTAL_APPS}}": totalAppsFmt,

@@ -75,6 +75,7 @@ async function main() {
 
   const data = JSON.parse(readFileSync(dataPath, "utf8"));
   let changed = false;
+  const goalsBefore = data.clubs.reduce((sum, c) => sum + c.goals, 0);
 
   try {
     if (await updateAlNassr(data)) changed = true;
@@ -96,9 +97,19 @@ async function main() {
     return;
   }
 
-  data.asOf = new Date().toISOString().slice(0, 10);
+  const today = new Date().toISOString().slice(0, 10);
+  data.asOf = today;
   // Not: yerelleştirilmiş görünen tarih (data.asOfDisplay diye ayrı bir alan
   // YOK artık) build.mjs içinde her dil için data.asOf'tan yeniden üretilir.
+
+  // "Son gol" tarihini ekstra bir API isteği YAPMADAN takip eder: toplam gol
+  // sayısı bir önceki kontrole göre arttıysa, bu çalıştırmanın tarihi "son
+  // gol tarihi" olarak kaydedilir. Kesin maç tarihi değil ama otomasyon her
+  // gün çalıştığı için pratikte 0-1 gün fark eder ve zamanla kendini düzeltir.
+  const goalsAfter = data.clubs.reduce((sum, c) => sum + c.goals, 0);
+  if (goalsAfter > goalsBefore) {
+    data.lastGoalDate = today;
+  }
 
   writeFileSync(dataPath, JSON.stringify(data, null, 2) + "\n");
   execSync("node scripts/build.mjs", { stdio: "inherit", cwd: root });
