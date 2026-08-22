@@ -11,10 +11,17 @@
 <meta property="og:title" content="{{PAGE_TITLE}}">
 <meta property="og:description" content="{{META_DESCRIPTION}}">
 <meta property="og:url" content="{{CANONICAL_URL}}">
+<meta property="og:image" content="https://www.ronaldogoalscore.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cristiano Ronaldo career goal tracker">
+<meta name="twitter:image" content="https://www.ronaldogoalscore.com/og-image.png">
 <meta name="theme-color" content="#0a100b">
 <meta name="google-site-verification" content="TY_RnWxCP6O1_YXqAL3wI0kC09lT8oX1RNv28GsOKHU" />
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,6 +50,26 @@
       "@type": "Question",
       "name": "{{FAQ4_Q}}",
       "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ4_A}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{FAQ5_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ5_A}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{FAQ6_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ6_A}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{FAQ7_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ7_A}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{FAQ8_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ8_A}}" }
     }
   ]
 }
@@ -347,6 +374,33 @@
 
   .asof::before { content: "●"; font-size: 0.6em; color: var(--green); }
 
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+  }
+
+  .hero-actions .asof { margin-top: 0; }
+
+  .share-btn {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--bg);
+    background: var(--green);
+    border: none;
+    border-radius: 999px;
+    padding: 0.42em 0.95em;
+    cursor: pointer;
+  }
+
+  .share-btn:hover { background: var(--red); color: #fff; }
+  .share-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
   /* ---------- Sections ---------- */
 
   h2 {
@@ -625,6 +679,46 @@
   footer a { color: var(--green); text-decoration-color: var(--line); text-underline-offset: 3px; }
   footer a:hover, footer a:focus-visible { color: var(--red); text-decoration-color: var(--red); }
 
+  .embed-box {
+    margin-top: 1.2rem;
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .embed-box summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .embed-code {
+    margin: 0.7rem 0;
+    padding: 0.7rem;
+    background: var(--surface-2);
+    border-radius: 8px;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    color: var(--text-soft);
+  }
+
+  .embed-copy-btn {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.4em 0.85em;
+    cursor: pointer;
+  }
+
+  .embed-copy-btn:hover { border-color: var(--green); color: var(--green); }
+
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -691,7 +785,10 @@
     </div>
 
     <p class="hero-caption">{{HERO_CAPTION}}</p>
-    <span class="asof">{{AS_OF_BADGE}}</span>
+    <div class="hero-actions">
+      <span class="asof">{{AS_OF_BADGE}}</span>
+      <button type="button" class="share-btn" data-share-title="{{PAGE_TITLE}}" data-share-text="{{SHARE_TEXT}}" data-copied-label="{{SHARE_COPIED}}">{{SHARE_LABEL}}</button>
+    </div>
   </header>
 
   <section class="timeline">
@@ -740,6 +837,26 @@
       <summary>{{FAQ4_Q}}</summary>
       <p>{{FAQ4_A}}</p>
     </details>
+
+    <details class="faq-item">
+      <summary>{{FAQ5_Q}}</summary>
+      <p>{{FAQ5_A}}</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>{{FAQ6_Q}}</summary>
+      <p>{{FAQ6_A}}</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>{{FAQ7_Q}}</summary>
+      <p>{{FAQ7_A}}</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>{{FAQ8_Q}}</summary>
+      <p>{{FAQ8_A}}</p>
+    </details>
   </section>
 
   <footer>
@@ -751,9 +868,48 @@
       <a href="https://www.transfermarkt.com/cristiano-ronaldo/leistungsdaten/spieler/8198" target="_blank" rel="noopener">Transfermarkt</a>
     </div>
     <p>{{FOOTER_UPDATED}}</p>
+
+    <details class="embed-box">
+      <summary>{{EMBED_TITLE}}</summary>
+      <pre class="embed-code" id="embedCode">{{EMBED_SNIPPET}}</pre>
+      <button type="button" class="embed-copy-btn" data-copied-label="{{COPIED_GENERIC}}">{{EMBED_COPY_LABEL}}</button>
+    </details>
   </footer>
 
 </div>
+
+<script>
+  document.querySelectorAll(".share-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var shareData = {
+        title: btn.dataset.shareTitle,
+        text: btn.dataset.shareText,
+        url: location.href,
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(function () {});
+        return;
+      }
+      navigator.clipboard.writeText(shareData.text + " " + shareData.url).then(function () {
+        var original = btn.textContent;
+        btn.textContent = btn.dataset.copiedLabel;
+        setTimeout(function () { btn.textContent = original; }, 2000);
+      });
+    });
+  });
+
+  var embedBtn = document.querySelector(".embed-copy-btn");
+  if (embedBtn) {
+    embedBtn.addEventListener("click", function () {
+      var code = document.getElementById("embedCode").textContent;
+      navigator.clipboard.writeText(code).then(function () {
+        var original = embedBtn.textContent;
+        embedBtn.textContent = embedBtn.dataset.copiedLabel;
+        setTimeout(function () { embedBtn.textContent = original; }, 2000);
+      });
+    });
+  }
+</script>
 
 <!-- Cloudflare Web Analytics -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1506a17db6cb46ba871ee2679b95721c"}'></script>

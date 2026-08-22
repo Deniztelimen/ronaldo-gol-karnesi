@@ -113,6 +113,7 @@ async function main() {
 
   writeFileSync(dataPath, JSON.stringify(data, null, 2) + "\n");
   execSync("node scripts/build.mjs", { stdio: "inherit", cwd: root });
+  execSync("node scripts/generate-og-image.mjs", { stdio: "inherit", cwd: root });
 }
 
 main();

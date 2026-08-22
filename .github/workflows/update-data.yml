@@ -19,7 +19,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Veriyi çek ve index.html'i yeniden üret
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Veriyi çek ve tüm sayfaları yeniden üret
         env:
           SPORTAPI_KEY: ${{ secrets.SPORTAPI_KEY }}
         run: node scripts/update-data.mjs
@@ -28,7 +31,7 @@ jobs:
         run: |
           git config user.name "ronaldo-gol-karnesi-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data.json index.html sitemap.xml
+          git add data.json sitemap.xml og-image.png index.html en de zh ru fr it pt widget
           if git diff --cached --quiet; then
             echo "Değişiklik yok."
           else

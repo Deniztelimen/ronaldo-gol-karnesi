@@ -19,10 +19,17 @@
 <meta property="og:title" content="Combien de buts a marqué Ronaldo ? — Compteur de buts en direct">
 <meta property="og:description" content="Le total actuel de buts et de passes décisives de Cristiano Ronaldo, la distance qui le sépare des 1 000 buts, et le détail de sa carrière club par club. Mis à jour automatiquement chaque jour.">
 <meta property="og:url" content="https://www.ronaldogoalscore.com/fr/">
+<meta property="og:image" content="https://www.ronaldogoalscore.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cristiano Ronaldo career goal tracker">
+<meta name="twitter:image" content="https://www.ronaldogoalscore.com/og-image.png">
 <meta name="theme-color" content="#0a100b">
 <meta name="google-site-verification" content="TY_RnWxCP6O1_YXqAL3wI0kC09lT8oX1RNv28GsOKHU" />
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -51,6 +58,26 @@
       "@type": "Question",
       "name": "Combien de buts Ronaldo a-t-il marqués avec le Portugal ?",
       "acceptedAnswer": { "@type": "Answer", "text": "146 buts — le record de buts inscrits en sélection masculine, toutes nations confondues." }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de fois Ronaldo a-t-il remporté le Ballon d'Or ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cinq fois — en 2008, 2013, 2014, 2016 et 2017." }
+    },
+    {
+      "@type": "Question",
+      "name": "Pour quel club Ronaldo joue-t-il actuellement ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Il joue à Al-Nassr, en Arabie saoudite, depuis 2023." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ronaldo est-il le meilleur buteur de l'histoire de la Ligue des champions ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui — avec 140 buts, il est le meilleur buteur de l'histoire de la compétition." }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de sélections Ronaldo compte-t-il avec le Portugal ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "233 sélections — également un record du plus grand nombre de sélections pour un joueur masculin." }
     }
   ]
 }
@@ -355,6 +382,33 @@
 
   .asof::before { content: "●"; font-size: 0.6em; color: var(--green); }
 
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+  }
+
+  .hero-actions .asof { margin-top: 0; }
+
+  .share-btn {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--bg);
+    background: var(--green);
+    border: none;
+    border-radius: 999px;
+    padding: 0.42em 0.95em;
+    cursor: pointer;
+  }
+
+  .share-btn:hover { background: var(--red); color: #fff; }
+  .share-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
   /* ---------- Sections ---------- */
 
   h2 {
@@ -633,6 +687,46 @@
   footer a { color: var(--green); text-decoration-color: var(--line); text-underline-offset: 3px; }
   footer a:hover, footer a:focus-visible { color: var(--red); text-decoration-color: var(--red); }
 
+  .embed-box {
+    margin-top: 1.2rem;
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .embed-box summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .embed-code {
+    margin: 0.7rem 0;
+    padding: 0.7rem;
+    background: var(--surface-2);
+    border-radius: 8px;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    color: var(--text-soft);
+  }
+
+  .embed-copy-btn {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.4em 0.85em;
+    cursor: pointer;
+  }
+
+  .embed-copy-btn:hover { border-color: var(--green); color: var(--green); }
+
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -706,7 +800,10 @@
     </div>
 
     <p class="hero-caption">Le détail de sa carrière, club par club, depuis les équipes de jeunes du Sporting CP jusqu'à aujourd'hui. Les lignes <em>Al-Nassr et Portugal</em> sont vérifiées et mises à jour automatiquement chaque jour.</p>
-    <span class="asof">au 22 août 2026 · mise à jour automatique</span>
+    <div class="hero-actions">
+      <span class="asof">au 22 août 2026 · mise à jour automatique</span>
+      <button type="button" class="share-btn" data-share-title="Combien de buts a marqué Ronaldo ? — Compteur de buts en direct" data-share-text="Ronaldo a marqué 977 buts — plus que 23 avant les 1000 ! Suivez en direct :" data-copied-label="Lien copié">Partager</button>
+    </div>
   </header>
 
   <section class="timeline">
@@ -866,6 +963,26 @@
       <summary>Combien de buts Ronaldo a-t-il marqués avec le Portugal ?</summary>
       <p>146 buts — le record de buts inscrits en sélection masculine, toutes nations confondues.</p>
     </details>
+
+    <details class="faq-item">
+      <summary>Combien de fois Ronaldo a-t-il remporté le Ballon d'Or ?</summary>
+      <p>Cinq fois — en 2008, 2013, 2014, 2016 et 2017.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Pour quel club Ronaldo joue-t-il actuellement ?</summary>
+      <p>Il joue à Al-Nassr, en Arabie saoudite, depuis 2023.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Ronaldo est-il le meilleur buteur de l'histoire de la Ligue des champions ?</summary>
+      <p>Oui — avec 140 buts, il est le meilleur buteur de l'histoire de la compétition.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Combien de sélections Ronaldo compte-t-il avec le Portugal ?</summary>
+      <p>233 sélections — également un record du plus grand nombre de sélections pour un joueur masculin.</p>
+    </details>
   </section>
 
   <footer>
@@ -877,9 +994,48 @@
       <a href="https://www.transfermarkt.com/cristiano-ronaldo/leistungsdaten/spieler/8198" target="_blank" rel="noopener">Transfermarkt</a>
     </div>
     <p>Dernière mise à jour : 22 août 2026</p>
+
+    <details class="embed-box">
+      <summary>Intégrer ce widget</summary>
+      <pre class="embed-code" id="embedCode">&lt;iframe src=&quot;https://www.ronaldogoalscore.com/widget/&quot; width=&quot;340&quot; height=&quot;190&quot; style=&quot;border:none;border-radius:16px;&quot; loading=&quot;lazy&quot; title=&quot;Ronaldo Goal Tracker&quot;&gt;&lt;/iframe&gt;</pre>
+      <button type="button" class="embed-copy-btn" data-copied-label="Copié">Copier le code</button>
+    </details>
   </footer>
 
 </div>
+
+<script>
+  document.querySelectorAll(".share-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var shareData = {
+        title: btn.dataset.shareTitle,
+        text: btn.dataset.shareText,
+        url: location.href,
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(function () {});
+        return;
+      }
+      navigator.clipboard.writeText(shareData.text + " " + shareData.url).then(function () {
+        var original = btn.textContent;
+        btn.textContent = btn.dataset.copiedLabel;
+        setTimeout(function () { btn.textContent = original; }, 2000);
+      });
+    });
+  });
+
+  var embedBtn = document.querySelector(".embed-copy-btn");
+  if (embedBtn) {
+    embedBtn.addEventListener("click", function () {
+      var code = document.getElementById("embedCode").textContent;
+      navigator.clipboard.writeText(code).then(function () {
+        var original = embedBtn.textContent;
+        embedBtn.textContent = embedBtn.dataset.copiedLabel;
+        setTimeout(function () { embedBtn.textContent = original; }, 2000);
+      });
+    });
+  }
+</script>
 
 <!-- Cloudflare Web Analytics -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1506a17db6cb46ba871ee2679b95721c"}'></script>

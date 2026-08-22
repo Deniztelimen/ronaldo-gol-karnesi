@@ -1,18 +1,33 @@
 # Ronaldo Gol Karnesi
 
 Cristiano Ronaldo'nun kulüp kulüp kariyer gol/asist dökümünü, 1.000 gole
-kalan mesafeyi gösteren tek sayfalık site. Al-Nassr (günlük) ve Portekiz
-Milli Takımı (haftalık) rakamları [SportAPI7](https://rapidapi.com/rapidsportapi/api/sportapi7)
-(Sofascore verisi) üzerinden otomatik güncellenir.
+kalan mesafeyi gösteren, 8 dilde (TR/EN/DE/ZH/RU/FR/IT/PT) yayınlanan site.
+Al-Nassr (günlük) ve Portekiz Milli Takımı (haftalık) rakamları
+[SportAPI7](https://rapidapi.com/rapidsportapi/api/sportapi7) (Sofascore
+verisi) üzerinden otomatik güncellenir.
 
 ## Dosya yapısı
 
-- `index.html` — yayınlanan sayfa (elle düzenlemeyin, üretilir)
+- `index.html`, `en/index.html`, `de/index.html`, ... — yayınlanan sayfalar
+  (elle düzenlemeyin, üretilir)
+- `widget/index.html` — başka sitelere `<iframe>` ile gömülebilen küçük
+  özet kart (dilden bağımsız, İngilizce)
+- `og-image.png` — sosyal medya paylaşım önizleme görseli (güncel sayılarla üretilir)
+- `icon-192.png` / `icon-512.png` / `apple-touch-icon.png` / `site.webmanifest` —
+  "ana ekrana ekle" ikon paketi
 - `template.html` — sayfanın tasarım/markup şablonu, `{{PLACEHOLDER}}` içerir
 - `data.json` — tek gerçek veri kaynağı: kulüp/sezon rakamları + otomasyon config'i
-- `scripts/build.mjs` — `data.json` + `template.html` → `index.html`
-- `scripts/update-data.mjs` — SportAPI7'den çekip `data.json`'u günceller, sonra `build.mjs`'i çağırır
+- `scripts/i18n.mjs` — 8 dilin tüm metinleri (başlıklar, SSS, kulüp adları, dipnotlar)
+- `scripts/build.mjs` — `data.json` + `i18n.mjs` + `template.html` → her dil için `index.html` + `widget/index.html`
+- `scripts/generate-og-image.mjs` — `og-image.png`'yi güncel sayılarla yeniden üretir
+- `scripts/generate-icons.mjs` — ikon paketini üretir (nadiren, tasarım değişmedikçe tekrar çalıştırmaya gerek yok)
+- `scripts/update-data.mjs` — SportAPI7'den çekip `data.json`'u günceller, sonra `build.mjs` + `generate-og-image.mjs`'i çağırır
 - `.github/workflows/update-data.yml` — günlük GitHub Actions cron job
+- `assets/fonts/` — `generate-og-image.mjs`/`generate-icons.mjs`'nin kullandığı gerçek font dosyaları (Google Fonts CSS sadece woff2 verdiği ve resvg bunu okuyamadığı için ttf halleri buraya indirildi)
+
+Node bağımlılıkları (`@resvg/resvg-js` — SVG'den PNG üretmek için) var artık;
+yerelde çalıştırmadan önce `npm install` gerekir. GitHub Actions'ta
+`npm ci` adımı zaten ekli.
 
 ## GitHub Pages ile yayınlama
 

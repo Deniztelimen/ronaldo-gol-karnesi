@@ -37,6 +37,10 @@ function fmt(n, intl) {
   return n.toLocaleString(intl, { useGrouping: true });
 }
 
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
 function pct(intl) {
   // %94,7 / 94.7% gibi yerel biçimlere Intl.NumberFormat ile uyum sağlar.
   return new Intl.NumberFormat(intl, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(progress);
@@ -150,6 +154,14 @@ function buildLocale(locale) {
     ? `<span class="last-goal-badge">${t.lastGoalLabel.replace("{{DATE}}", localizedDate(intl, data.lastGoalDate))}</span>`
     : "";
 
+  const shareText = t.shareText
+    .replace("{{N}}", totalGoalsFmt)
+    .replace("{{REMAINING}}", remainingFmt)
+    .replace(/"/g, "&quot;");
+
+  const embedIframe = `<iframe src="${siteOrigin}/widget/" width="340" height="190" style="border:none;border-radius:16px;" loading="lazy" title="Ronaldo Goal Tracker"></iframe>`;
+  const embedSnippet = escapeHtml(embedIframe);
+
   const replacements = {
     "{{HTML_LANG}}": locale.code,
     "{{PAGE_TITLE}}": t.pageTitle,
@@ -171,6 +183,13 @@ function buildLocale(locale) {
     "{{AS_OF_BADGE}}": asOfBadge,
     "{{SECTION_TIMELINE_TITLE}}": t.sectionTimelineTitle,
     "{{LAST_GOAL_BADGE}}": lastGoalBadge,
+    "{{SHARE_LABEL}}": t.shareLabel,
+    "{{SHARE_TEXT}}": shareText,
+    "{{SHARE_COPIED}}": t.shareCopied,
+    "{{EMBED_TITLE}}": t.embedTitle,
+    "{{EMBED_SNIPPET}}": embedSnippet,
+    "{{EMBED_COPY_LABEL}}": t.embedCopyLabel,
+    "{{COPIED_GENERIC}}": t.copiedGeneric,
     "{{CLUB_ROWS}}": rowsHtml,
     "{{TOTAL_CARD_LABEL}}": t.totalCardLabel,
     "{{TOTAL_APPS}}": totalAppsFmt,
@@ -189,6 +208,14 @@ function buildLocale(locale) {
     "{{FAQ3_A}}": faq3A,
     "{{FAQ4_Q}}": t.faq4Q,
     "{{FAQ4_A}}": t.faq4A,
+    "{{FAQ5_Q}}": t.faq5Q,
+    "{{FAQ5_A}}": t.faq5A,
+    "{{FAQ6_Q}}": t.faq6Q,
+    "{{FAQ6_A}}": t.faq6A,
+    "{{FAQ7_Q}}": t.faq7Q,
+    "{{FAQ7_A}}": t.faq7A,
+    "{{FAQ8_Q}}": t.faq8Q,
+    "{{FAQ8_A}}": t.faq8A,
     "{{FOOTER_NOTE}}": t.footerNote,
     "{{FOOTER_UPDATED}}": footerUpdated,
     "{{RING_CIRC}}": CIRC.toFixed(2),
@@ -205,6 +232,89 @@ function buildLocale(locale) {
 for (const locale of locales) {
   buildLocale(locale);
 }
+
+// Başka sitelere gömülebilen küçük widget (iframe ile kullanılıyor).
+// Dilden bağımsız, tek bir İngilizce sürüm — sayılar zaten evrensel.
+function buildWidget() {
+  const RADIUS = 40;
+  const CIRC2 = 2 * Math.PI * RADIUS;
+  const offset2 = (CIRC2 * (1 - progress)).toFixed(2);
+  const fmt2 = (n) => fmt(n, "en-US");
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronaldo Goal Tracker Widget</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: transparent; }
+  a.card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 320px;
+    padding: 14px 16px;
+    background: #0a100b;
+    border: 1px solid #253027;
+    border-radius: 16px;
+    text-decoration: none;
+    font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+    color: #edf2ec;
+  }
+  .ring-wrap { position: relative; width: 84px; height: 84px; flex: none; }
+  svg { transform: rotate(-90deg); }
+  .track { fill: none; stroke: #253027; stroke-width: 8; }
+  .fill { fill: none; stroke: url(#g); stroke-width: 8; stroke-linecap: round; }
+  .center {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Anton", sans-serif; font-size: 22px;
+  }
+  .meta { min-width: 0; }
+  .brand { font-family: "Sora"; font-weight: 700; font-size: 13px; margin: 0 0 2px; }
+  .sub { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #93a891; margin: 0 0 6px; }
+  .remaining { font-family: "JetBrains Mono", monospace; font-size: 12px; color: #ffcb47; font-weight: 600; }
+  .footer { font-family: "JetBrains Mono", monospace; font-size: 10px; color: #22c974; margin-top: 4px; }
+</style>
+</head>
+<body>
+<a class="card" href="${siteOrigin}/?utm_source=widget" target="_blank" rel="noopener">
+  <div class="ring-wrap">
+    <svg width="84" height="84" viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#22c974"/>
+          <stop offset="100%" stop-color="#ff5468"/>
+        </linearGradient>
+      </defs>
+      <circle class="track" cx="50" cy="50" r="${RADIUS}"></circle>
+      <circle class="fill" cx="50" cy="50" r="${RADIUS}" stroke-dasharray="${CIRC2.toFixed(2)}" stroke-dashoffset="${offset2}"></circle>
+    </svg>
+    <div class="center">${fmt2(totals.goals)}</div>
+  </div>
+  <div class="meta">
+    <p class="brand">Cristiano Ronaldo</p>
+    <p class="sub">/ ${fmt2(target)} career goals</p>
+    <p class="remaining">${fmt2(remaining)} to go</p>
+    <p class="footer">ronaldogoalscore.com ↗</p>
+  </div>
+</a>
+</body>
+</html>
+`;
+
+  const outDir = new URL("widget/", root);
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(new URL("index.html", outDir), html);
+}
+
+buildWidget();
 
 // sitemap.xml: her dil için bir <url>, hepsi birbirine hreflang alternate veriyor.
 function buildSitemap() {

@@ -1,0 +1,24 @@
+{
+  "name": "ronaldo-gol-karnesi",
+  "version": "1.0.0",
+  "description": "Cristiano Ronaldo'nun kulüp kulüp kariyer gol/asist dökümünü, 1.000 gole kalan mesafeyi gösteren tek sayfalık site. Al-Nassr (günlük) ve Portekiz Milli Takımı (haftalık) rakamları [SportAPI7](https://rapidapi.com/rapidsportapi/api/sportapi7) (Sofascore verisi) üzerinden otomatik güncellenir.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deniztelimen/ronaldo-gol-karnesi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Deniztelimen/ronaldo-gol-karnesi/issues"
+  },
+  "homepage": "https://github.com/Deniztelimen/ronaldo-gol-karnesi#readme",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}
