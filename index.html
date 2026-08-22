@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronaldo Gol Karnesi</title>
+<meta name="description" content="Cristiano Ronaldo'nun forma forma kariyer gol ve asist dökümü, kaynaklarıyla birlikte.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #eef1ea;
+    --paper-raised: #e3e7dd;
+    --ink: #12180f;
+    --ink-soft: #4c5646;
+    --line: #cdd3c3;
+    --pitch: #2f5233;
+    --pitch-soft: #6d8c6f;
+    --brass: #a06c22;
+    --brass-strong: #7c5219;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #10140d;
+      --paper-raised: #171d13;
+      --ink: #e9ecdf;
+      --ink-soft: #a3ac96;
+      --line: #2b3324;
+      --pitch: #7ea680;
+      --pitch-soft: #4f7052;
+      --brass: #d8a24e;
+      --brass-strong: #f0bc6a;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #10140d;
+    --paper-raised: #171d13;
+    --ink: #e9ecdf;
+    --ink-soft: #a3ac96;
+    --line: #2b3324;
+    --pitch: #7ea680;
+    --pitch-soft: #4f7052;
+    --brass: #d8a24e;
+    --brass-strong: #f0bc6a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 3rem;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--pitch);
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 1.6em;
+    height: 2px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  header.hero {
+    padding-bottom: 2.75rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 2.75rem;
+  }
+
+  .hero-top {
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-figure {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin: 0.9rem 0 0.4rem;
+  }
+
+  .hero-number {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-weight: 400;
+    font-size: clamp(4.5rem, 17vw, 7.5rem);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .hero-unit {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 0.6rem;
+  }
+
+  .hero-sub {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hero-sub strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .hero-caption {
+    max-width: 58ch;
+    margin-top: 1.4rem;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+
+  .hero-caption em {
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .asof {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1.3rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: var(--brass-strong);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    padding: 0.4em 0.85em;
+    border-radius: 999px;
+  }
+
+  .asof::before {
+    content: "●";
+    font-size: 0.6em;
+    color: var(--pitch);
+  }
+
+  section.timeline {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    margin: 0 0 1.4rem;
+    text-wrap: balance;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 0.3rem 1rem;
+    padding: 1.15rem 0;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+
+  .row:last-of-type {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .row-club {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .row-club .name {
+    font-family: "Source Serif 4", serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+
+  .row-club .years {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brass-strong);
+    border: 1px solid var(--brass);
+    border-radius: 999px;
+    padding: 0.12em 0.6em;
+  }
+
+  .stats {
+    display: flex;
+    gap: 1.5rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    justify-self: end;
+  }
+
+  .stat {
+    text-align: right;
+    min-width: 3.4rem;
+  }
+
+  .stat .n {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .stat .approx {
+    color: var(--brass-strong);
+  }
+
+  .stat .l {
+    display: block;
+    font-size: 0.62rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.15rem;
+  }
+
+  .row-note {
+    grid-column: 1 / -1;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  .total {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.3rem 0 0.3rem;
+    margin-top: 0.4rem;
+    border-top: 2px solid var(--brass);
+  }
+
+  .total .name {
+    font-family: "Anton", sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .total .stats .n {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--brass-strong);
+  }
+
+  @media (max-width: 520px) {
+    .row { grid-template-columns: 1fr; }
+    .stats { justify-self: start; gap: 1.1rem; }
+    .total { grid-template-columns: 1fr; }
+    .total .stats { justify-self: start; }
+  }
+
+  section.record {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+  }
+
+  section.record strong {
+    color: var(--ink);
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 1.6rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  footer p {
+    margin: 0 0 0.9rem;
+  }
+
+  footer .sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em 1.1em;
+    margin-bottom: 1rem;
+  }
+
+  footer a {
+    color: var(--pitch-soft);
+    text-decoration-color: var(--line);
+    text-underline-offset: 3px;
+  }
+
+  footer a:hover, footer a:focus-visible {
+    color: var(--pitch);
+    text-decoration-color: var(--pitch);
+  }
+
+  a:focus-visible, .row:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .row, header.hero, section.record {
+      animation: rise 0.5s ease backwards;
+    }
+    .row:nth-of-type(1) { animation-delay: 0.02s; }
+    .row:nth-of-type(2) { animation-delay: 0.06s; }
+    .row:nth-of-type(3) { animation-delay: 0.10s; }
+    .row:nth-of-type(4) { animation-delay: 0.14s; }
+    .row:nth-of-type(5) { animation-delay: 0.18s; }
+    .row:nth-of-type(6) { animation-delay: 0.22s; }
+    .row:nth-of-type(7) { animation-delay: 0.26s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <p class="eyebrow">Kariyer Karnesi · Cristiano Ronaldo</p>
+      <div class="hero-figure">
+        <span class="hero-number">947</span>
+        <span class="hero-unit">resmi kariyer golü</span>
+      </div>
+      <div class="hero-sub">
+        <span><strong>291</strong> asist</span>
+        <span><strong>1.290</strong> maç</span>
+        <span><strong>7</strong> forma — 6 kulüp + milli takım</span>
+      </div>
+    </div>
+    <p class="hero-caption">
+      2002'de Sporting CP altyapısından çıktığından bu yana sahada geçirdiği
+      her sezonun dökümü — kulüp kulüp gol ve asist sayıları, kronolojik
+      sırayla. <em>Al-Nassr ve Portekiz Milli Takımı</em> satırları hâlâ
+      büyüyor; işaretli sayılar bu yüzden yaklaşık değer taşıyor.
+    </p>
+    <span class="asof">21 Ağustos 2026 itibarıyla · elle doğrulanmıştır</span>
+  </header>
+
+  <section class="timeline">
+    <h2>Forma forma döküm</h2>
+
+    <div class="row">
+      <div class="row-club">
+        <span class="name">Sporting CP</span>
+        <span class="years">2002–2003</span>
+      </div>
+      <div class="stats">
+        <span class="stat"><span class="n">31</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n">5</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-club">
+        <span class="name">Manchester United</span>
+        <span class="years">2003–2009 · 1. dönem</span>
+      </div>
+      <div class="stats">
+        <span class="stat"><span class="n">292</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n">118</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n">69</span><span class="l">Asist</span></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-club">
+        <span class="name">Real Madrid</span>
+        <span class="years">2009–2018</span>
+        <span class="tag">Kulüp rekoru</span>
+      </div>
+      <div class="stats">
+        <span class="stat"><span class="n">438</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n">450</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n">131</span><span class="l">Asist</span></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-club">
+        <span class="name">Juventus</span>
+        <span class="years">2018–2021</span>
+      </div>
+      <div class="stats">
+        <span class="stat"><span class="n">134</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n">101</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n">22</span><span class="l">Asist</span></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-club">
+        <span class="name">Manchester United</span>
+        <span class="years">2021–2022 · 2. dönem</span>
+      </div>
+      <div class="stats">
+        <span class="stat"><span class="n">54</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n">24</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-club">
+        <span class="name">Al-Nassr</span>
+        <span class="years">2023–günümüz</span>
+      </div>
+      <div class="stats">
+        <span class="stat"><span class="n approx">~108</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n approx">~103</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n approx">~20</span><span class="l">Asist</span></span>
+      </div>
+      <p class="row-note">Devam ediyor — sezon içinde her hafta değişir.</p>
+    </div>
+
+    <div class="row">
+      <div class="row-club">
+        <span class="name">Portekiz Milli Takımı</span>
+        <span class="years">2003–günümüz</span>
+      </div>
+      <div class="stats">
+        <span class="stat"><span class="n approx">233</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n approx">146</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n approx">~43</span><span class="l">Asist</span></span>
+      </div>
+      <p class="row-note">Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu.</p>
+    </div>
+
+    <div class="total">
+      <span class="name">Toplam</span>
+      <div class="stats">
+        <span class="stat"><span class="n">1.290</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n">947</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n">291</span><span class="l">Asist</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="record">
+    <strong>Real Madrid</strong>, tek bir kulüpte geçirdiği en verimli dönem —
+    9 sezonda 438 maçta 450 gol, kulübün tüm zamanların en golcüsü unvanını
+    hâlâ elinde tutuyor. <strong>Portekiz</strong> formasıyla attığı 146 gol ise
+    erkekler futbolunda bir milli takım için atılmış en yüksek gol sayısı.
+  </section>
+
+  <footer>
+    <p>
+      Rakamlar kapanmış dönemler için (Sporting–Juventus, ilk Man United
+      dönemi) istikrarlı kabul edilir; Al-Nassr ve Portekiz satırları hâlâ
+      oynadığı için yaklaşıktır ve düzenli elle güncellenir. Kesin, günlük
+      güncel sayı için kaynaklardaki canlı takip sitelerine bakın.
+    </p>
+    <div class="sources">
+      <a href="https://en.wikipedia.org/wiki/Cristiano_Ronaldo" target="_blank" rel="noopener">Wikipedia</a>
+      <a href="https://footystats.org/players/portugal/cristiano-ronaldo" target="_blank" rel="noopener">FootyStats</a>
+      <a href="https://www.statmuse.com/fc/ask/cristiano-ronaldo-goals-and-assists" target="_blank" rel="noopener">StatMuse</a>
+      <a href="https://www.transfermarkt.com/cristiano-ronaldo/leistungsdaten/spieler/8198" target="_blank" rel="noopener">Transfermarkt</a>
+    </div>
+    <p>Son güncelleme: 22 Ağustos 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
