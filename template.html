@@ -457,6 +457,20 @@
 
   .cards { display: flex; flex-direction: column; gap: 0.65rem; }
 
+  /* Kronolojik bağlantı çizgisi — kartların forma rozetinin tam ortasından
+     geçen kısa bir bağlantı, kariyerin bir zaman çizelgesi olduğunu vurgular. */
+  .cards .card { position: relative; }
+  .cards .card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 2.35rem;
+    bottom: -0.66rem;
+    width: 2px;
+    height: 0.66rem;
+    background: linear-gradient(var(--green), var(--red));
+    opacity: 0.55;
+  }
+
   .card {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -572,6 +586,23 @@
     margin: 0.7rem 0 0;
     font-family: "JetBrains Mono", monospace;
   }
+
+  /* Real Madrid'in (450 gol) diğerlerine oranını tek bakışta gösteren çubuk. */
+  .card-bar {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    margin-top: 0.8rem;
+    overflow: hidden;
+  }
+
+  .card-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--green);
+  }
+
+  .card-bar-fill--national { background: var(--red); }
 
   .total-card {
     display: flex;
@@ -879,6 +910,40 @@
 </div>
 
 <script>
+  (function () {
+    var figure = document.querySelector(".milestone-figure");
+    var ringFill = document.querySelector(".ring-fill");
+    if (!figure || !ringFill) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var finalText = figure.textContent;
+    var finalNumber = parseInt(finalText.replace(/[^\d]/g, ""), 10);
+    if (!finalNumber) return;
+
+    var computed = getComputedStyle(ringFill);
+    var finalOffset = computed.strokeDashoffset;
+    var locale = document.documentElement.lang || "en";
+
+    ringFill.style.strokeDashoffset = computed.strokeDasharray;
+    requestAnimationFrame(function () {
+      ringFill.getBoundingClientRect();
+      ringFill.style.transition = "stroke-dashoffset 1.3s cubic-bezier(.22,.9,.3,1)";
+      ringFill.style.strokeDashoffset = finalOffset;
+    });
+
+    var duration = 1300;
+    var start = null;
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      figure.textContent = Math.round(eased * finalNumber).toLocaleString(locale);
+      if (p < 1) requestAnimationFrame(tick);
+      else figure.textContent = finalText;
+    }
+    requestAnimationFrame(tick);
+  })();
+
   document.querySelectorAll(".share-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var shareData = {

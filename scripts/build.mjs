@@ -61,6 +61,8 @@ function renderBadge(c) {
   return `<span class="badge" style="${style}">${c.abbr}</span>`;
 }
 
+const maxClubGoals = Math.max(...data.clubs.map((c) => c.goals));
+
 function renderRow(c, locale, t, intl) {
   const text = clubText[c.id][locale];
   const tag = c.tag ? `<span class="tag">${t.clubRecordTag}</span>` : "";
@@ -70,6 +72,8 @@ function renderRow(c, locale, t, intl) {
   const kindClass = c.national ? "kind--national" : "kind--club";
   const kindLabel = c.national ? t.kindNational : t.kindClub;
   const badge = c.abbr ? renderBadge(c) : "";
+  const barPct = Math.max(Math.round((c.goals / maxClubGoals) * 100), 4);
+  const barClass = c.national ? "card-bar-fill--national" : "";
 
   return `      <div class="card">
         <div class="card-head">
@@ -85,6 +89,7 @@ function renderRow(c, locale, t, intl) {
           <span class="stat"><span class="n${cls}">${prefix}${fmt(c.goals, intl)}</span><span class="l">${t.statGoalLabel}</span></span>
           <span class="stat"><span class="n${cls}">${prefix}${fmt(c.assists, intl)}</span><span class="l">${t.statAssistLabel}</span></span>
         </div>
+        <div class="card-bar"><div class="card-bar-fill ${barClass}" style="width:${barPct}%"></div></div>
         ${note}
       </div>`;
 }
