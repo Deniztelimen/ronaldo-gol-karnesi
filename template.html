@@ -26,7 +26,7 @@
       "name": "Cristiano Ronaldo kariyerinde toplam kaç gol attı?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cristiano Ronaldo, 22 Ağustos 2026 itibarıyla kulüp ve milli takım toplamında 947 resmi gol attı. 1.000 gole 53 gol kaldı."
+        "text": "Cristiano Ronaldo, {{AS_OF_DATE}} itibarıyla kulüp ve milli takım toplamında {{TOTAL_GOALS}} resmi gol attı. 1.000 gole {{GOALS_REMAINING}} gol kaldı."
       }
     },
     {
@@ -42,7 +42,7 @@
       "name": "Ronaldo'nun toplam asist sayısı kaç?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ronaldo kariyeri boyunca 291 resmi asist yaptı."
+        "text": "Ronaldo kariyeri boyunca {{TOTAL_ASSISTS}} resmi asist yaptı."
       }
     },
     {
@@ -171,8 +171,8 @@
     stroke: var(--brass);
     stroke-width: 9;
     stroke-linecap: round;
-    stroke-dasharray: 534.07;
-    stroke-dashoffset: 28.31;
+    stroke-dasharray: {{RING_CIRC}};
+    stroke-dashoffset: {{RING_OFFSET}};
   }
 
   .milestone-center {
@@ -515,16 +515,16 @@
           <circle class="ring-fill" cx="100" cy="100" r="85"></circle>
         </svg>
         <div class="milestone-center">
-          <span class="milestone-figure">947</span>
-          <span class="milestone-target">/ 1.000 gol</span>
+          <span class="milestone-figure">{{TOTAL_GOALS}}</span>
+          <span class="milestone-target">/ {{MILESTONE_TARGET}} gol</span>
         </div>
       </div>
-      <p class="milestone-remaining"><strong>53</strong> gol kaldı · %94,7 tamamlandı</p>
+      <p class="milestone-remaining"><strong>{{GOALS_REMAINING}}</strong> gol kaldı · {{PROGRESS_PCT}} tamamlandı</p>
     </div>
 
     <div class="hero-sub">
-      <span><strong>291</strong> asist</span>
-      <span><strong>1.290</strong> maç</span>
+      <span><strong>{{TOTAL_ASSISTS}}</strong> asist</span>
+      <span><strong>{{TOTAL_APPS}}</strong> maç</span>
       <span><strong>7</strong> forma — 6 kulüp + milli takım</span>
     </div>
 
@@ -534,110 +534,20 @@
       hâlâ büyüyor; işaretli sayılar bu yüzden yaklaşık değer taşıyor ve her
       gün otomatik kontrol edilip güncelleniyor.
     </p>
-    <span class="asof">22 Ağustos 2026 itibarıyla · otomatik güncellenir</span>
+    <span class="asof">{{AS_OF_DATE}} itibarıyla · otomatik güncellenir</span>
   </header>
 
   <section class="timeline">
     <h2>Forma forma döküm</h2>
 
-        <div class="row">
-      <div class="row-club">
-        <span class="name">Sporting CP</span>
-        <span class="years">2002–2003</span>
-        
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n">31</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">5</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Manchester United</span>
-        <span class="years">2003–2009 · 1. dönem</span>
-        
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n">292</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">118</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">69</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Real Madrid</span>
-        <span class="years">2009–2018</span>
-        <span class="tag">Kulüp rekoru</span>
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n">438</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">450</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">131</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Juventus</span>
-        <span class="years">2018–2021</span>
-        
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n">134</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">101</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">22</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Manchester United</span>
-        <span class="years">2021–2022 · 2. dönem</span>
-        
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n">54</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">24</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Al-Nassr</span>
-        <span class="years">2023–günümüz</span>
-        
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n approx">~108</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n approx">~103</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n approx">~20</span><span class="l">Asist</span></span>
-      </div>
-      <p class="row-note">Devam ediyor — her maçtan sonra otomatik güncellenir.</p>
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Portekiz Milli Takımı</span>
-        <span class="years">2003–günümüz</span>
-        
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n approx">~233</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n approx">~146</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n approx">~43</span><span class="l">Asist</span></span>
-      </div>
-      <p class="row-note">Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu.</p>
-    </div>
+    {{CLUB_ROWS}}
 
     <div class="total">
       <span class="name">Toplam</span>
       <div class="stats">
-        <span class="stat"><span class="n">1.290</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">947</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">291</span><span class="l">Asist</span></span>
+        <span class="stat"><span class="n">{{TOTAL_APPS}}</span><span class="l">Maç</span></span>
+        <span class="stat"><span class="n">{{TOTAL_GOALS}}</span><span class="l">Gol</span></span>
+        <span class="stat"><span class="n">{{TOTAL_ASSISTS}}</span><span class="l">Asist</span></span>
       </div>
     </div>
   </section>
@@ -654,7 +564,7 @@
 
     <details class="faq-item">
       <summary>Cristiano Ronaldo kariyerinde toplam kaç gol attı?</summary>
-      <p>22 Ağustos 2026 itibarıyla kulüp ve milli takım toplamında 947 resmi gol — 1.000 gole 53 gol kaldı.</p>
+      <p>{{AS_OF_DATE}} itibarıyla kulüp ve milli takım toplamında {{TOTAL_GOALS}} resmi gol — 1.000 gole {{GOALS_REMAINING}} gol kaldı.</p>
     </details>
 
     <details class="faq-item">
@@ -664,7 +574,7 @@
 
     <details class="faq-item">
       <summary>Ronaldo'nun toplam asist sayısı kaç?</summary>
-      <p>Kariyeri boyunca 291 resmi asist yaptı.</p>
+      <p>Kariyeri boyunca {{TOTAL_ASSISTS}} resmi asist yaptı.</p>
     </details>
 
     <details class="faq-item">
@@ -686,7 +596,7 @@
       <a href="https://www.statmuse.com/fc/ask/cristiano-ronaldo-goals-and-assists" target="_blank" rel="noopener">StatMuse</a>
       <a href="https://www.transfermarkt.com/cristiano-ronaldo/leistungsdaten/spieler/8198" target="_blank" rel="noopener">Transfermarkt</a>
     </div>
-    <p>Son güncelleme: 22 Ağustos 2026</p>
+    <p>Son güncelleme: {{AS_OF_DATE}}</p>
   </footer>
 
 </div>

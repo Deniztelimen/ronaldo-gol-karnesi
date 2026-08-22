@@ -1,0 +1,63 @@
+{
+  "asOf": "2026-08-22",
+  "asOfDisplay": "22 Ağustos 2026",
+  "milestoneTarget": 1000,
+  "clubs": [
+    {
+      "name": "Sporting CP",
+      "years": "2002–2003",
+      "apps": 31,
+      "goals": 5,
+      "assists": 3
+    },
+    {
+      "name": "Manchester United",
+      "years": "2003–2009 · 1. dönem",
+      "apps": 292,
+      "goals": 118,
+      "assists": 69
+    },
+    {
+      "name": "Real Madrid",
+      "years": "2009–2018",
+      "apps": 438,
+      "goals": 450,
+      "assists": 131,
+      "tag": "Kulüp rekoru"
+    },
+    {
+      "name": "Juventus",
+      "years": "2018–2021",
+      "apps": 134,
+      "goals": 101,
+      "assists": 22
+    },
+    {
+      "name": "Manchester United",
+      "years": "2021–2022 · 2. dönem",
+      "apps": 54,
+      "goals": 24,
+      "assists": 3
+    },
+    {
+      "name": "Al-Nassr",
+      "years": "2023–günümüz",
+      "apps": 108,
+      "goals": 103,
+      "assists": 20,
+      "approx": true,
+      "live": true,
+      "note": "Devam ediyor — her maçtan sonra otomatik güncellenir."
+    },
+    {
+      "name": "Portekiz Milli Takımı",
+      "years": "2003–günümüz",
+      "apps": 233,
+      "goals": 146,
+      "assists": 43,
+      "approx": true,
+      "live": true,
+      "note": "Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu."
+    }
+  ]
+}
