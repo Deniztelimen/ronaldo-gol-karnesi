@@ -35,24 +35,46 @@ function fmt(n) {
   return n.toLocaleString("tr-TR");
 }
 
+function renderBadge(c) {
+  const style = [
+    `--badge-bg:${c.badgeBg || "var(--surface-2)"}`,
+    `--badge-fg:${c.badgeFg || "var(--text)"}`,
+    c.badgeBorder ? `--badge-border:${c.badgeBorder}` : "",
+  ]
+    .filter(Boolean)
+    .join(";");
+
+  if (c.badgeSplit) {
+    return `<span class="badge badge--split" style="${style};--badge-split:${c.badgeSplit}"><span>${c.abbr}</span></span>`;
+  }
+  return `<span class="badge" style="${style}">${c.abbr}</span>`;
+}
+
 function renderRow(c) {
   const tag = c.tag ? `<span class="tag">${c.tag}</span>` : "";
   const cls = c.approx ? " approx" : "";
   const prefix = c.approx ? "~" : "";
-  const note = c.note ? `<p class="row-note">${c.note}</p>` : "";
-  return `    <div class="row">
-      <div class="row-club">
-        <span class="name">${c.name}</span>
-        <span class="years">${c.years}</span>
-        ${tag}
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n${cls}">${prefix}${fmt(c.apps)}</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n${cls}">${prefix}${fmt(c.goals)}</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n${cls}">${prefix}${fmt(c.assists)}</span><span class="l">Asist</span></span>
-      </div>
-      ${note}
-    </div>`;
+  const note = c.note ? `<p class="card-note">${c.note}</p>` : "";
+  const kindClass = c.national ? "kind--national" : "kind--club";
+  const kindLabel = c.national ? "Milli Takım" : "Kulüp";
+  const badge = c.abbr ? renderBadge(c) : "";
+
+  return `      <div class="card">
+        <div class="card-head">
+          ${badge}
+          <div class="card-title">
+            <span class="name">${c.name}</span>
+            <span class="meta"><span class="kind ${kindClass}">${kindLabel}</span><span>·</span><span>${c.years}</span></span>
+          </div>
+          ${tag}
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n${cls}">${prefix}${fmt(c.apps)}</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n${cls}">${prefix}${fmt(c.goals)}</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n${cls}">${prefix}${fmt(c.assists)}</span><span class="l">Asist</span></span>
+        </div>
+        ${note}
+      </div>`;
 }
 
 const rowsHtml = data.clubs.map(renderRow).join("\n");

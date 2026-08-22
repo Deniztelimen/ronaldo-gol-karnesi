@@ -10,11 +10,12 @@
 <meta property="og:title" content="Ronaldo Kaç Gol Attı? — Güncel Gol Sayacı">
 <meta property="og:description" content="Cristiano Ronaldo'nun güncel toplam gol ve asist sayısı, 1.000 gole kalan mesafe ve kulüp kulüp kariyer dökümü.">
 <meta property="og:url" content="https://www.ronaldogoalscore.com/">
+<meta name="theme-color" content="#0a100b">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -59,117 +60,148 @@
 
 <style>
   :root {
-    --paper: #eef1ea;
-    --paper-raised: #e3e7dd;
-    --ink: #12180f;
-    --ink-soft: #4c5646;
-    --line: #cdd3c3;
-    --pitch: #2f5233;
-    --pitch-soft: #6d8c6f;
-    --brass: #a06c22;
-    --brass-strong: #7c5219;
+    --bg: #f3f7f3;
+    --surface: #ffffff;
+    --surface-2: #eaf2ea;
+    --text: #10160f;
+    --text-soft: #57685c;
+    --line: #dbe6d8;
+    --green: #046a38;
+    --green-soft: #e2f2e8;
+    --red: #c8102e;
+    --gold: #93690a;
+    --shadow: rgba(16, 22, 15, 0.10);
+    --hero-photo: none;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #10140d;
-      --paper-raised: #171d13;
-      --ink: #e9ecdf;
-      --ink-soft: #a3ac96;
-      --line: #2b3324;
-      --pitch: #7ea680;
-      --pitch-soft: #4f7052;
-      --brass: #d8a24e;
-      --brass-strong: #f0bc6a;
+      --bg: #0a100b;
+      --surface: #131c14;
+      --surface-2: #182219;
+      --text: #edf2ec;
+      --text-soft: #93a891;
+      --line: #253027;
+      --green: #22c974;
+      --green-soft: rgba(34, 201, 116, 0.12);
+      --red: #ff5468;
+      --gold: #ffcb47;
+      --shadow: rgba(0, 0, 0, 0.5);
     }
   }
 
   :root[data-theme="dark"] {
-    --paper: #10140d;
-    --paper-raised: #171d13;
-    --ink: #e9ecdf;
-    --ink-soft: #a3ac96;
-    --line: #2b3324;
-    --pitch: #7ea680;
-    --pitch-soft: #4f7052;
-    --brass: #d8a24e;
-    --brass-strong: #f0bc6a;
+    --bg: #0a100b;
+    --surface: #131c14;
+    --surface-2: #182219;
+    --text: #edf2ec;
+    --text-soft: #93a891;
+    --line: #253027;
+    --green: #22c974;
+    --green-soft: rgba(34, 201, 116, 0.12);
+    --red: #ff5468;
+    --gold: #ffcb47;
+    --shadow: rgba(0, 0, 0, 0.5);
   }
 
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
 
   .wrap {
-    max-width: 760px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 3.5rem 1.5rem 3rem;
+    padding: 2.75rem 1.25rem 3rem;
+    position: relative;
+  }
+
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  /* ---------- Hero ---------- */
+
+  header.hero {
+    position: relative;
+    text-align: center;
+    padding: 2.25rem 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 28px;
+    background:
+      radial-gradient(120% 140% at 50% -10%, var(--green-soft), transparent 60%),
+      var(--surface);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    background-image: var(--hero-photo);
+    background-size: cover;
+    background-position: center 15%;
+    opacity: 0;
+    filter: grayscale(1) contrast(1.15);
+    mix-blend-mode: luminosity;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent, var(--surface) 92%);
   }
 
   .eyebrow {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--pitch);
-    display: flex;
+    color: var(--green);
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.6em;
+    gap: 0.55em;
   }
 
   .eyebrow::before, .eyebrow::after {
     content: "";
-    width: 1.6em;
+    width: 1.4em;
     height: 2px;
-    background: var(--brass);
+    background: var(--red);
     display: inline-block;
-  }
-
-  header.hero {
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 2.75rem;
-    text-align: center;
+    border-radius: 2px;
   }
 
   .milestone {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin: 1.7rem 0 1.6rem;
+    gap: 0.9rem;
+    margin: 1.5rem 0 1.4rem;
   }
 
   .ring-wrap {
     position: relative;
-    width: min(240px, 62vw);
+    width: min(220px, 58vw);
     aspect-ratio: 1;
   }
 
-  .ring {
-    width: 100%;
-    height: 100%;
-    transform: rotate(-90deg);
-  }
-
-  .ring-track {
-    fill: none;
-    stroke: var(--line);
-    stroke-width: 9;
-  }
-
+  .ring { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .ring-track { fill: none; stroke: var(--line); stroke-width: 10; }
   .ring-fill {
     fill: none;
-    stroke: var(--brass);
-    stroke-width: 9;
+    stroke: url(#ringGradient);
+    stroke-width: 10;
     stroke-linecap: round;
     stroke-dasharray: 534.07;
     stroke-dashoffset: 15.49;
@@ -187,245 +219,286 @@
   .milestone-figure {
     font-family: "Anton", "Arial Narrow", sans-serif;
     font-weight: 400;
-    font-size: clamp(2.8rem, 11vw, 3.6rem);
+    font-size: clamp(2.6rem, 10vw, 3.4rem);
     line-height: 0.9;
-    color: var(--ink);
+    color: var(--text);
   }
 
   .milestone-target {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.72rem;
-    color: var(--ink-soft);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-soft);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-top: 0.35rem;
+    margin-top: 0.3rem;
   }
 
   .milestone-remaining {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.95rem;
-    color: var(--ink-soft);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.92rem;
+    color: var(--text-soft);
     margin: 0;
   }
 
   .milestone-remaining strong {
-    color: var(--brass-strong);
-    font-weight: 600;
-    font-size: 1.08em;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.1em;
   }
 
   .hero-sub {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.92rem;
-    color: var(--ink-soft);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.85rem;
+    color: var(--text-soft);
     display: flex;
     justify-content: center;
-    gap: 1.4rem;
+    gap: 1.1rem;
     flex-wrap: wrap;
     font-variant-numeric: tabular-nums;
   }
 
-  .hero-sub strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
 
   .hero-caption {
-    max-width: 52ch;
-    margin: 1.4rem auto 0;
-    color: var(--ink-soft);
-    font-size: 1rem;
+    max-width: 46ch;
+    margin: 1.25rem auto 0;
+    color: var(--text-soft);
+    font-size: 0.95rem;
   }
 
-  .hero-caption em {
-    color: var(--ink);
-    font-style: italic;
-  }
+  .hero-caption em { color: var(--text); font-style: normal; font-weight: 600; }
 
   .asof {
     display: inline-flex;
     align-items: center;
     gap: 0.5em;
-    margin-top: 1.3rem;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.03em;
-    color: var(--brass-strong);
-    background: var(--paper-raised);
+    margin-top: 1.1rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--surface-2);
     border: 1px solid var(--line);
     padding: 0.4em 0.85em;
     border-radius: 999px;
   }
 
-  .asof::before {
-    content: "●";
-    font-size: 0.6em;
-    color: var(--pitch);
-  }
+  .asof::before { content: "●"; font-size: 0.6em; color: var(--green); }
 
-  section.timeline {
-    margin-bottom: 2.5rem;
-  }
+  /* ---------- Sections ---------- */
 
   h2 {
-    font-family: "Anton", "Arial Narrow", sans-serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    letter-spacing: 0.01em;
-    margin: 0 0 1.4rem;
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 1rem;
     text-wrap: balance;
-  }
-
-  .row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    gap: 0.3rem 1rem;
-    padding: 1.15rem 0;
-    border-top: 1px solid var(--line);
-    position: relative;
-  }
-
-  .row:last-of-type {
-    border-bottom: 1px solid var(--line);
-  }
-
-  .row-club {
     display: flex;
-    align-items: baseline;
-    gap: 0.6rem;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55em;
   }
 
-  .row-club .name {
-    font-family: "Source Serif 4", serif;
-    font-weight: 600;
-    font-size: 1.15rem;
+  h2::before {
+    content: "";
+    width: 5px;
+    height: 1.1em;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--green), var(--red));
+    display: inline-block;
   }
 
-  .row-club .years {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.78rem;
-    color: var(--ink-soft);
+  section.timeline { margin-bottom: 2rem; }
+
+  /* ---------- Club cards ---------- */
+
+  .cards { display: flex; flex-direction: column; gap: 0.65rem; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px 8px 22px 8px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .card-head { display: flex; align-items: center; gap: 0.7rem; }
+
+  .badge {
+    flex: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.68rem;
     letter-spacing: 0.02em;
+    background: var(--badge-bg, var(--surface-2));
+    color: var(--badge-fg, var(--text));
+    border: 1px solid var(--badge-border, transparent);
+    position: relative;
+    overflow: hidden;
   }
+
+  .badge.badge--split::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: var(--badge-split);
+  }
+  .badge.badge--split span { position: relative; }
+
+  .card-title { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; min-width: 0; }
+
+  .card-title .name {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .card-title .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--text-soft);
+  }
+
+  .kind {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .kind--club { color: var(--green); }
+  .kind--national { color: var(--red); }
 
   .tag {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.66rem;
-    letter-spacing: 0.06em;
+    flex: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--brass-strong);
-    border: 1px solid var(--brass);
+    color: var(--gold);
+    border: 1px solid var(--gold);
     border-radius: 999px;
-    padding: 0.12em 0.6em;
+    padding: 0.25em 0.65em;
+    white-space: nowrap;
   }
 
-  .stats {
-    display: flex;
-    gap: 1.5rem;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-variant-numeric: tabular-nums;
-    justify-self: end;
+  .card-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--line);
   }
 
-  .stat {
-    text-align: right;
-    min-width: 3.4rem;
-  }
+  .stat { text-align: center; }
 
   .stat .n {
     display: block;
-    font-size: 1.2rem;
-    color: var(--ink);
-    font-weight: 500;
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
   }
 
-  .stat .n.approx {
-    color: var(--brass-strong);
-  }
+  .stat .n.approx { color: var(--gold); }
 
   .stat .l {
     display: block;
     font-size: 0.62rem;
-    color: var(--ink-soft);
+    color: var(--text-soft);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
     margin-top: 0.15rem;
   }
 
-  .row-note {
-    grid-column: 1 / -1;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    margin-top: 0.2rem;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+  .card-note {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    margin: 0.7rem 0 0;
+    font-family: "JetBrains Mono", monospace;
   }
 
-  .total {
-    display: grid;
-    grid-template-columns: 1fr auto;
+  .total-card {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
-    padding: 1.3rem 0 0.3rem;
-    margin-top: 0.4rem;
-    border-top: 2px solid var(--brass);
+    margin-top: 0.75rem;
+    padding: 1.05rem 1.2rem;
+    border-radius: 22px 8px 22px 8px;
+    background: linear-gradient(120deg, var(--green-soft), transparent 60%), var(--surface-2);
+    border: 1px solid var(--gold);
   }
 
-  .total .name {
-    font-family: "Anton", sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.02em;
+  .total-card .name {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
   }
 
-  .total .stats .n {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--brass-strong);
+  .total-card .card-stats {
+    border: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.1rem;
   }
 
-  @media (max-width: 520px) {
-    .row { grid-template-columns: 1fr; }
-    .stats { justify-self: start; gap: 1.1rem; }
-    .total { grid-template-columns: 1fr; }
-    .total .stats { justify-self: start; }
+  .total-card .stat .n { font-size: 1.25rem; color: var(--gold); }
+
+  @media (max-width: 420px) {
+    .total-card { flex-direction: column; align-items: stretch; }
+    .total-card .card-stats { grid-template-columns: repeat(3, 1fr); }
   }
+
+  /* ---------- Record callout ---------- */
 
   section.record {
-    background: var(--paper-raised);
+    background: var(--surface-2);
     border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 1.5rem 1.6rem;
-    margin-bottom: 2.5rem;
-    font-size: 0.98rem;
-    color: var(--ink-soft);
+    border-left: 3px solid var(--green);
+    border-radius: 4px 14px 14px 4px;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 2rem;
+    font-size: 0.92rem;
+    color: var(--text-soft);
   }
 
-  section.record strong {
-    color: var(--ink);
-  }
+  section.record strong { color: var(--text); }
 
-  section.faq {
-    margin-bottom: 2.5rem;
-  }
+  /* ---------- FAQ ---------- */
+
+  section.faq { margin-bottom: 2rem; }
 
   .faq-item {
-    border-top: 1px solid var(--line);
-    padding: 1rem 0;
-  }
-
-  .faq-item:last-of-type {
-    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.55rem;
   }
 
   .faq-item summary {
-    font-family: "Source Serif 4", serif;
+    font-family: "Sora", sans-serif;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     cursor: pointer;
     list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
   }
 
@@ -433,68 +506,51 @@
 
   .faq-item summary::after {
     content: "+";
-    font-family: "IBM Plex Mono", monospace;
-    color: var(--brass-strong);
+    font-family: "JetBrains Mono", monospace;
+    color: var(--green);
     flex-shrink: 0;
+    font-size: 1.1rem;
   }
 
-  .faq-item[open] summary::after {
-    content: "–";
-  }
+  .faq-item[open] summary::after { content: "–"; color: var(--red); }
 
   .faq-item p {
-    color: var(--ink-soft);
-    margin: 0.7rem 0 0;
-    font-size: 0.98rem;
+    color: var(--text-soft);
+    margin: 0.65rem 0 0;
+    font-size: 0.9rem;
   }
+
+  /* ---------- Footer ---------- */
 
   footer {
     border-top: 1px solid var(--line);
-    padding-top: 1.6rem;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.8rem;
-    color: var(--ink-soft);
+    padding-top: 1.4rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--text-soft);
   }
 
-  footer p {
-    margin: 0 0 0.9rem;
-  }
+  footer p { margin: 0 0 0.85rem; }
 
-  footer .sources {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4em 1.1em;
-    margin-bottom: 1rem;
-  }
+  footer .sources { display: flex; flex-wrap: wrap; gap: 0.4em 1.1em; margin-bottom: 0.9rem; }
 
-  footer a {
-    color: var(--pitch-soft);
-    text-decoration-color: var(--line);
-    text-underline-offset: 3px;
-  }
+  footer a { color: var(--green); text-decoration-color: var(--line); text-underline-offset: 3px; }
+  footer a:hover, footer a:focus-visible { color: var(--red); text-decoration-color: var(--red); }
 
-  footer a:hover, footer a:focus-visible {
-    color: var(--pitch);
-    text-decoration-color: var(--pitch);
-  }
-
-  a:focus-visible, .row:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--brass);
-    outline-offset: 2px;
-  }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
   @media (prefers-reduced-motion: no-preference) {
-    .row, header.hero, section.record, .faq-item {
-      animation: rise 0.5s ease backwards;
+    .card, header.hero, section.record, .faq-item, .total-card {
+      animation: rise 0.45s ease backwards;
     }
-    .ring-fill { transition: stroke-dashoffset 1.1s ease 0.15s; }
-    .row:nth-of-type(1) { animation-delay: 0.02s; }
-    .row:nth-of-type(2) { animation-delay: 0.06s; }
-    .row:nth-of-type(3) { animation-delay: 0.10s; }
-    .row:nth-of-type(4) { animation-delay: 0.14s; }
-    .row:nth-of-type(5) { animation-delay: 0.18s; }
-    .row:nth-of-type(6) { animation-delay: 0.22s; }
-    .row:nth-of-type(7) { animation-delay: 0.26s; }
+    .ring-fill { transition: stroke-dashoffset 1s ease 0.15s; }
+    .cards .card:nth-child(1) { animation-delay: 0.02s; }
+    .cards .card:nth-child(2) { animation-delay: 0.06s; }
+    .cards .card:nth-child(3) { animation-delay: 0.10s; }
+    .cards .card:nth-child(4) { animation-delay: 0.14s; }
+    .cards .card:nth-child(5) { animation-delay: 0.18s; }
+    .cards .card:nth-child(6) { animation-delay: 0.22s; }
+    .cards .card:nth-child(7) { animation-delay: 0.26s; }
     @keyframes rise {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
@@ -506,11 +562,18 @@
 <div class="wrap">
 
   <header class="hero">
+    <div class="hero-photo"></div>
     <p class="eyebrow">1.000 Gole Doğru</p>
 
     <div class="milestone">
       <div class="ring-wrap">
         <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--green)"/>
+              <stop offset="100%" stop-color="var(--red)"/>
+            </linearGradient>
+          </defs>
           <circle class="ring-track" cx="100" cy="100" r="85"></circle>
           <circle class="ring-fill" cx="100" cy="100" r="85"></circle>
         </svg>
@@ -525,14 +588,12 @@
     <div class="hero-sub">
       <span><strong>293</strong> asist</span>
       <span><strong>1.323</strong> maç</span>
-      <span><strong>7</strong> forma — 6 kulüp + milli takım</span>
+      <span><strong>7</strong> forma</span>
     </div>
 
     <p class="hero-caption">
-      2002'de Sporting CP altyapısından çıktığından bu yana sahada geçirdiği
-      her sezonun dökümü. <em>Al-Nassr ve Portekiz Milli Takımı</em> satırları
-      hâlâ büyüyor; işaretli sayılar bu yüzden yaklaşık değer taşıyor ve her
-      gün otomatik kontrol edilip güncelleniyor.
+      Sporting CP altyapısından bugüne kulüp kulüp kariyer dökümü. <em>Al-Nassr
+      ve Portekiz</em> satırları her gün otomatik kontrol edilip güncellenir.
     </p>
     <span class="asof">22 Ağustos 2026 itibarıyla · otomatik güncellenir</span>
   </header>
@@ -540,101 +601,124 @@
   <section class="timeline">
     <h2>Forma forma döküm</h2>
 
-        <div class="row">
-      <div class="row-club">
-        <span class="name">Sporting CP</span>
-        <span class="years">2002–2003</span>
+    <div class="cards">
+            <div class="card">
+        <div class="card-head">
+          <span class="badge" style="--badge-bg:#0a6b3d;--badge-fg:#ffffff">SCP</span>
+          <div class="card-title">
+            <span class="name">Sporting CP</span>
+            <span class="meta"><span class="kind kind--club">Kulüp</span><span>·</span><span>2002–2003</span></span>
+          </div>
+          
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n">31</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n">5</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
+        </div>
         
       </div>
-      <div class="stats">
-        <span class="stat"><span class="n">31</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">5</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Manchester United</span>
-        <span class="years">2003–2009 · 1. dönem</span>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge" style="--badge-bg:#da291c;--badge-fg:#ffe500">MU</span>
+          <div class="card-title">
+            <span class="name">Manchester United</span>
+            <span class="meta"><span class="kind kind--club">Kulüp</span><span>·</span><span>2003–2009 · 1. dönem</span></span>
+          </div>
+          
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n">292</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n">118</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n">69</span><span class="l">Asist</span></span>
+        </div>
         
       </div>
-      <div class="stats">
-        <span class="stat"><span class="n">292</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">118</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">69</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Real Madrid</span>
-        <span class="years">2009–2018</span>
-        <span class="tag">Kulüp rekoru</span>
-      </div>
-      <div class="stats">
-        <span class="stat"><span class="n">438</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">450</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">131</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Juventus</span>
-        <span class="years">2018–2021</span>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge" style="--badge-bg:#fefefe;--badge-fg:#1a1a4e;--badge-border:#ceb14b">RM</span>
+          <div class="card-title">
+            <span class="name">Real Madrid</span>
+            <span class="meta"><span class="kind kind--club">Kulüp</span><span>·</span><span>2009–2018</span></span>
+          </div>
+          <span class="tag">Kulüp rekoru</span>
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n">438</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n">450</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n">131</span><span class="l">Asist</span></span>
+        </div>
         
       </div>
-      <div class="stats">
-        <span class="stat"><span class="n">134</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">101</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">22</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Manchester United</span>
-        <span class="years">2021–2022 · 2. dönem</span>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge" style="--badge-bg:#0a0a0a;--badge-fg:#ffffff;--badge-border:#ffffff">JUV</span>
+          <div class="card-title">
+            <span class="name">Juventus</span>
+            <span class="meta"><span class="kind kind--club">Kulüp</span><span>·</span><span>2018–2021</span></span>
+          </div>
+          
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n">134</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n">101</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n">22</span><span class="l">Asist</span></span>
+        </div>
         
       </div>
-      <div class="stats">
-        <span class="stat"><span class="n">54</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">24</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Al-Nassr</span>
-        <span class="years">2023–günümüz</span>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge" style="--badge-bg:#da291c;--badge-fg:#ffe500">MU</span>
+          <div class="card-title">
+            <span class="name">Manchester United</span>
+            <span class="meta"><span class="kind kind--club">Kulüp</span><span>·</span><span>2021–2022 · 2. dönem</span></span>
+          </div>
+          
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n">54</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n">24</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n">3</span><span class="l">Asist</span></span>
+        </div>
         
       </div>
-      <div class="stats">
-        <span class="stat"><span class="n approx">~141</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n approx">~127</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n approx">~22</span><span class="l">Asist</span></span>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge" style="--badge-bg:#f6c945;--badge-fg:#0b2647">ALN</span>
+          <div class="card-title">
+            <span class="name">Al-Nassr</span>
+            <span class="meta"><span class="kind kind--club">Kulüp</span><span>·</span><span>2023–günümüz</span></span>
+          </div>
+          
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n approx">~141</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n approx">~127</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n approx">~22</span><span class="l">Asist</span></span>
+        </div>
+        <p class="card-note">Devam ediyor — Suudi Pro Lig maçları her gün otomatik kontrol edilir.</p>
       </div>
-      <p class="row-note">Devam ediyor — Suudi Pro Lig maçları her gün otomatik kontrol edilir.</p>
-    </div>
-    <div class="row">
-      <div class="row-club">
-        <span class="name">Portekiz Milli Takımı</span>
-        <span class="years">2003–günümüz</span>
-        
+      <div class="card">
+        <div class="card-head">
+          <span class="badge badge--split" style="--badge-bg:#046a38;--badge-fg:#ffffff;--badge-split:#da020e"><span>POR</span></span>
+          <div class="card-title">
+            <span class="name">Portekiz Milli Takımı</span>
+            <span class="meta"><span class="kind kind--national">Milli Takım</span><span>·</span><span>2003–günümüz</span></span>
+          </div>
+          
+        </div>
+        <div class="card-stats">
+          <span class="stat"><span class="n approx">~233</span><span class="l">Maç</span></span>
+          <span class="stat"><span class="n approx">~146</span><span class="l">Gol</span></span>
+          <span class="stat"><span class="n approx">~43</span><span class="l">Asist</span></span>
+        </div>
+        <p class="card-note">Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu. Gol/maç sayısı haftalık otomatik kontrol edilir; asist sayısı elle tahmindir.</p>
       </div>
-      <div class="stats">
-        <span class="stat"><span class="n approx">~233</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n approx">~146</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n approx">~43</span><span class="l">Asist</span></span>
-      </div>
-      <p class="row-note">Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu. Gol/maç sayısı haftalık otomatik kontrol edilir; asist sayısı elle tahmindir.</p>
     </div>
 
-    <div class="total">
-      <span class="name">Toplam</span>
-      <div class="stats">
+    <div class="total-card">
+      <span class="name">Kariyer toplamı</span>
+      <div class="card-stats">
         <span class="stat"><span class="n">1.323</span><span class="l">Maç</span></span>
         <span class="stat"><span class="n">971</span><span class="l">Gol</span></span>
         <span class="stat"><span class="n">293</span><span class="l">Asist</span></span>

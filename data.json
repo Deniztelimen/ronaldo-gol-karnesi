@@ -8,14 +8,20 @@
       "years": "2002–2003",
       "apps": 31,
       "goals": 5,
-      "assists": 3
+      "assists": 3,
+      "abbr": "SCP",
+      "badgeBg": "#0a6b3d",
+      "badgeFg": "#ffffff"
     },
     {
       "name": "Manchester United",
       "years": "2003–2009 · 1. dönem",
       "apps": 292,
       "goals": 118,
-      "assists": 69
+      "assists": 69,
+      "abbr": "MU",
+      "badgeBg": "#da291c",
+      "badgeFg": "#ffe500"
     },
     {
       "name": "Real Madrid",
@@ -23,21 +29,32 @@
       "apps": 438,
       "goals": 450,
       "assists": 131,
-      "tag": "Kulüp rekoru"
+      "tag": "Kulüp rekoru",
+      "abbr": "RM",
+      "badgeBg": "#fefefe",
+      "badgeFg": "#1a1a4e",
+      "badgeBorder": "#ceb14b"
     },
     {
       "name": "Juventus",
       "years": "2018–2021",
       "apps": 134,
       "goals": 101,
-      "assists": 22
+      "assists": 22,
+      "abbr": "JUV",
+      "badgeBg": "#0a0a0a",
+      "badgeFg": "#ffffff",
+      "badgeBorder": "#ffffff"
     },
     {
       "name": "Manchester United",
       "years": "2021–2022 · 2. dönem",
       "apps": 54,
       "goals": 24,
-      "assists": 3
+      "assists": 3,
+      "abbr": "MU",
+      "badgeBg": "#da291c",
+      "badgeFg": "#ffe500"
     },
     {
       "name": "Al-Nassr",
@@ -47,7 +64,10 @@
       "assists": 22,
       "approx": true,
       "live": true,
-      "note": "Devam ediyor — Suudi Pro Lig maçları her gün otomatik kontrol edilir."
+      "note": "Devam ediyor — Suudi Pro Lig maçları her gün otomatik kontrol edilir.",
+      "abbr": "ALN",
+      "badgeBg": "#f6c945",
+      "badgeFg": "#0b2647"
     },
     {
       "name": "Portekiz Milli Takımı",
@@ -57,7 +77,12 @@
       "assists": 43,
       "approx": true,
       "live": true,
-      "note": "Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu. Gol/maç sayısı haftalık otomatik kontrol edilir; asist sayısı elle tahmindir."
+      "national": true,
+      "note": "Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu. Gol/maç sayısı haftalık otomatik kontrol edilir; asist sayısı elle tahmindir.",
+      "abbr": "POR",
+      "badgeBg": "#046a38",
+      "badgeFg": "#ffffff",
+      "badgeSplit": "#da020e"
     }
   ],
   "liveConfig": {
