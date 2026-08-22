@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{HTML_LANG}}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ronaldo Kaç Gol Attı? — Güncel Gol Sayacı</title>
-<meta name="description" content="Cristiano Ronaldo'nun güncel toplam gol ve asist sayısı, 1.000 gole kalan mesafe ve kulüp kulüp kariyer dökümü. Her gün otomatik güncellenir.">
-<link rel="canonical" href="https://www.ronaldogoalscore.com/">
+<title>{{PAGE_TITLE}}</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<link rel="canonical" href="{{CANONICAL_URL}}">
+{{HREFLANG_LINKS}}
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ronaldo Kaç Gol Attı? — Güncel Gol Sayacı">
-<meta property="og:description" content="Cristiano Ronaldo'nun güncel toplam gol ve asist sayısı, 1.000 gole kalan mesafe ve kulüp kulüp kariyer dökümü.">
-<meta property="og:url" content="https://www.ronaldogoalscore.com/">
+<meta property="og:title" content="{{PAGE_TITLE}}">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL_URL}}">
 <meta name="theme-color" content="#0a100b">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
@@ -24,35 +25,23 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Cristiano Ronaldo kariyerinde toplam kaç gol attı?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cristiano Ronaldo, {{AS_OF_DATE}} itibarıyla kulüp ve milli takım toplamında {{TOTAL_GOALS}} resmi gol attı. 1.000 gole {{GOALS_REMAINING}} gol kaldı."
-      }
+      "name": "{{FAQ1_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ1_A}}" }
     },
     {
       "@type": "Question",
-      "name": "Ronaldo en çok golü hangi kulüpte attı?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ronaldo en verimli dönemini Real Madrid'de geçirdi: 2009–2018 arası 438 maçta 450 gol atarak kulübün tüm zamanların en golcüsü unvanını kazandı."
-      }
+      "name": "{{FAQ2_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ2_A}}" }
     },
     {
       "@type": "Question",
-      "name": "Ronaldo'nun toplam asist sayısı kaç?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ronaldo kariyeri boyunca {{TOTAL_ASSISTS}} resmi asist yaptı."
-      }
+      "name": "{{FAQ3_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ3_A}}" }
     },
     {
       "@type": "Question",
-      "name": "Ronaldo Portekiz Milli Takımı'nda kaç gol attı?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ronaldo, Portekiz formasıyla 146 gol attı — erkekler futbolunda bir milli takım için atılmış en yüksek gol sayısı."
-      }
+      "name": "{{FAQ4_Q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ4_A}}" }
     }
   ]
 }
@@ -126,6 +115,70 @@
     font-family: "JetBrains Mono", ui-monospace, monospace;
   }
 
+  /* ---------- Language switcher ---------- */
+
+  .lang-switch {
+    position: fixed;
+    top: 0.9rem;
+    left: 0.9rem;
+    z-index: 100;
+  }
+
+  .lang-switch > summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.45em 0.8em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+
+  .lang-switch > summary::-webkit-details-marker { display: none; }
+  .lang-switch > summary::after { content: "▾"; color: var(--text-soft); font-size: 0.7em; }
+  .lang-switch[open] > summary::after { content: "▴"; }
+
+  .lang-menu {
+    margin-top: 0.4rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 0.35rem;
+    box-shadow: 0 8px 24px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 9.5rem;
+  }
+
+  .lang-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+    padding: 0.45em 0.6em;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .lang-menu a:hover, .lang-menu a:focus-visible { background: var(--surface-2); }
+
+  .lang-menu a[aria-current="true"] {
+    color: var(--green);
+    font-weight: 700;
+    background: var(--green-soft);
+  }
+
   /* ---------- Hero ---------- */
 
   header.hero {
@@ -165,7 +218,7 @@
     font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--green);
     display: inline-flex;
@@ -559,11 +612,21 @@
 </style>
 </head>
 <body>
+
+<details class="lang-switch">
+  <summary aria-label="{{LANG_SWITCH_LABEL}}">
+    <span>{{CUR_FLAG}}</span><span>{{CUR_CODE}}</span>
+  </summary>
+  <nav class="lang-menu">
+    {{LANG_LINKS}}
+  </nav>
+</details>
+
 <div class="wrap">
 
   <header class="hero">
     <div class="hero-photo"></div>
-    <p class="eyebrow">1.000 Gole Doğru</p>
+    <p class="eyebrow">{{EYEBROW}}</p>
 
     <div class="milestone">
       <div class="ring-wrap">
@@ -579,87 +642,76 @@
         </svg>
         <div class="milestone-center">
           <span class="milestone-figure">{{TOTAL_GOALS}}</span>
-          <span class="milestone-target">/ {{MILESTONE_TARGET}} gol</span>
+          <span class="milestone-target">/ {{MILESTONE_TARGET}} {{GOAL_UNIT}}</span>
         </div>
       </div>
-      <p class="milestone-remaining"><strong>{{GOALS_REMAINING}}</strong> gol kaldı · {{PROGRESS_PCT}} tamamlandı</p>
+      <p class="milestone-remaining">{{MILESTONE_REMAINING}}</p>
     </div>
 
     <div class="hero-sub">
-      <span><strong>{{TOTAL_ASSISTS}}</strong> asist</span>
-      <span><strong>{{TOTAL_APPS}}</strong> maç</span>
-      <span><strong>7</strong> forma</span>
+      <span>{{HERO_SUB_ASSISTS}}</span>
+      <span>{{HERO_SUB_MATCHES}}</span>
+      <span>{{HERO_SUB_SHIRTS}}</span>
     </div>
 
-    <p class="hero-caption">
-      Sporting CP altyapısından bugüne kulüp kulüp kariyer dökümü. <em>Al-Nassr
-      ve Portekiz</em> satırları her gün otomatik kontrol edilip güncellenir.
-    </p>
-    <span class="asof">{{AS_OF_DATE}} itibarıyla · otomatik güncellenir</span>
+    <p class="hero-caption">{{HERO_CAPTION}}</p>
+    <span class="asof">{{AS_OF_BADGE}}</span>
   </header>
 
   <section class="timeline">
-    <h2>Forma forma döküm</h2>
+    <h2>{{SECTION_TIMELINE_TITLE}}</h2>
 
     <div class="cards">
       {{CLUB_ROWS}}
     </div>
 
     <div class="total-card">
-      <span class="name">Kariyer toplamı</span>
+      <span class="name">{{TOTAL_CARD_LABEL}}</span>
       <div class="card-stats">
-        <span class="stat"><span class="n">{{TOTAL_APPS}}</span><span class="l">Maç</span></span>
-        <span class="stat"><span class="n">{{TOTAL_GOALS}}</span><span class="l">Gol</span></span>
-        <span class="stat"><span class="n">{{TOTAL_ASSISTS}}</span><span class="l">Asist</span></span>
+        <span class="stat"><span class="n">{{TOTAL_APPS}}</span><span class="l">{{STAT_MATCH_LABEL}}</span></span>
+        <span class="stat"><span class="n">{{TOTAL_GOALS}}</span><span class="l">{{STAT_GOAL_LABEL}}</span></span>
+        <span class="stat"><span class="n">{{TOTAL_ASSISTS}}</span><span class="l">{{STAT_ASSIST_LABEL}}</span></span>
       </div>
     </div>
   </section>
 
   <section class="record">
-    <strong>Real Madrid</strong>, tek bir kulüpte geçirdiği en verimli dönem —
-    9 sezonda 438 maçta 450 gol, kulübün tüm zamanların en golcüsü unvanını
-    hâlâ elinde tutuyor. <strong>Portekiz</strong> formasıyla attığı 146 gol ise
-    erkekler futbolunda bir milli takım için atılmış en yüksek gol sayısı.
+    {{RECORD_CALLOUT}}
   </section>
 
   <section class="faq">
-    <h2>Sık sorulanlar</h2>
+    <h2>{{FAQ_TITLE}}</h2>
 
     <details class="faq-item">
-      <summary>Cristiano Ronaldo kariyerinde toplam kaç gol attı?</summary>
-      <p>{{AS_OF_DATE}} itibarıyla kulüp ve milli takım toplamında {{TOTAL_GOALS}} resmi gol — 1.000 gole {{GOALS_REMAINING}} gol kaldı.</p>
+      <summary>{{FAQ1_Q}}</summary>
+      <p>{{FAQ1_A}}</p>
     </details>
 
     <details class="faq-item">
-      <summary>Ronaldo en çok golü hangi kulüpte attı?</summary>
-      <p>Real Madrid'de: 2009–2018 arası 438 maçta 450 gol, kulübün tüm zamanların en golcüsü unvanı hâlâ onda.</p>
+      <summary>{{FAQ2_Q}}</summary>
+      <p>{{FAQ2_A}}</p>
     </details>
 
     <details class="faq-item">
-      <summary>Ronaldo'nun toplam asist sayısı kaç?</summary>
-      <p>Kariyeri boyunca {{TOTAL_ASSISTS}} resmi asist yaptı.</p>
+      <summary>{{FAQ3_Q}}</summary>
+      <p>{{FAQ3_A}}</p>
     </details>
 
     <details class="faq-item">
-      <summary>Ronaldo Portekiz Milli Takımı'nda kaç gol attı?</summary>
-      <p>146 gol — erkekler futbolunda bir milli takım için atılmış en yüksek gol sayısı.</p>
+      <summary>{{FAQ4_Q}}</summary>
+      <p>{{FAQ4_A}}</p>
     </details>
   </section>
 
   <footer>
-    <p>
-      Rakamlar kapanmış dönemler için (Sporting–Juventus, ilk Man United
-      dönemi) istikrarlı kabul edilir; Al-Nassr ve Portekiz satırları hâlâ
-      oynadığı için yaklaşıktır ve her maç sonrası otomatik olarak yeniden
-      hesaplanır.
-    </p>
+    <p>{{FOOTER_NOTE}}</p>
     <div class="sources">
       <a href="https://en.wikipedia.org/wiki/Cristiano_Ronaldo" target="_blank" rel="noopener">Wikipedia</a>
       <a href="https://footystats.org/players/portugal/cristiano-ronaldo" target="_blank" rel="noopener">FootyStats</a>
       <a href="https://www.statmuse.com/fc/ask/cristiano-ronaldo-goals-and-assists" target="_blank" rel="noopener">StatMuse</a>
       <a href="https://www.transfermarkt.com/cristiano-ronaldo/leistungsdaten/spieler/8198" target="_blank" rel="noopener">Transfermarkt</a>
     </div>
-    <p>Son güncelleme: {{AS_OF_DATE}}</p>
+    <p>{{FOOTER_UPDATED}}</p>
   </footer>
 
 </div>

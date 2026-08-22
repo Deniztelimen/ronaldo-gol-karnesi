@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.ronaldogoalscore.com/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
+  </url>
+  <url>
+    <loc>https://www.ronaldogoalscore.com/en/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
+  </url>
+  <url>
+    <loc>https://www.ronaldogoalscore.com/de/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
+  </url>
+  <url>
+    <loc>https://www.ronaldogoalscore.com/zh/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
+  </url>
+  <url>
+    <loc>https://www.ronaldogoalscore.com/ru/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
+  </url>
+  <url>
+    <loc>https://www.ronaldogoalscore.com/fr/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
+  </url>
+  <url>
+    <loc>https://www.ronaldogoalscore.com/it/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
+  </url>
+  <url>
+    <loc>https://www.ronaldogoalscore.com/pt/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.ronaldogoalscore.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldogoalscore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ronaldogoalscore.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.ronaldogoalscore.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ronaldogoalscore.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldogoalscore.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ronaldogoalscore.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldogoalscore.com/pt/"/>
   </url>
 </urlset>

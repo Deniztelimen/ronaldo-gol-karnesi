@@ -1,11 +1,9 @@
 {
   "asOf": "2026-08-22",
-  "asOfDisplay": "22 Ağustos 2026",
   "milestoneTarget": 1000,
   "clubs": [
     {
-      "name": "Sporting CP",
-      "years": "2002–2003",
+      "id": "sporting",
       "apps": 31,
       "goals": 5,
       "assists": 3,
@@ -14,8 +12,7 @@
       "badgeFg": "#ffffff"
     },
     {
-      "name": "Manchester United",
-      "years": "2003–2009 · 1. dönem",
+      "id": "manutd1",
       "apps": 292,
       "goals": 118,
       "assists": 69,
@@ -24,20 +21,18 @@
       "badgeFg": "#ffe500"
     },
     {
-      "name": "Real Madrid",
-      "years": "2009–2018",
+      "id": "realmadrid",
       "apps": 438,
       "goals": 450,
       "assists": 131,
-      "tag": "Kulüp rekoru",
+      "tag": true,
       "abbr": "RM",
       "badgeBg": "#fefefe",
       "badgeFg": "#1a1a4e",
       "badgeBorder": "#ceb14b"
     },
     {
-      "name": "Juventus",
-      "years": "2018–2021",
+      "id": "juventus",
       "apps": 134,
       "goals": 101,
       "assists": 22,
@@ -47,8 +42,7 @@
       "badgeBorder": "#ffffff"
     },
     {
-      "name": "Manchester United",
-      "years": "2021–2022 · 2. dönem",
+      "id": "manutd2",
       "apps": 54,
       "goals": 24,
       "assists": 3,
@@ -57,28 +51,24 @@
       "badgeFg": "#ffe500"
     },
     {
-      "name": "Al-Nassr",
-      "years": "2023–günümüz",
+      "id": "alnassr",
       "apps": 141,
       "goals": 127,
       "assists": 22,
       "approx": true,
       "live": true,
-      "note": "Devam ediyor — Suudi Pro Lig maçları her gün otomatik kontrol edilir.",
       "abbr": "ALN",
       "badgeBg": "#f6c945",
       "badgeFg": "#0b2647"
     },
     {
-      "name": "Portekiz Milli Takımı",
-      "years": "2003–günümüz",
+      "id": "portugal",
       "apps": 233,
       "goals": 146,
       "assists": 43,
       "approx": true,
       "live": true,
       "national": true,
-      "note": "Erkekler futbolunda tüm zamanların en golcü milli takım oyuncusu. Gol/maç sayısı haftalık otomatik kontrol edilir; asist sayısı elle tahmindir.",
       "abbr": "POR",
       "badgeBg": "#046a38",
       "badgeFg": "#ffffff",

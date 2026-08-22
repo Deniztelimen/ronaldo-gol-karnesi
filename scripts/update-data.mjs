@@ -36,7 +36,7 @@ async function updateAlNassr(data) {
     `/api/v1/player/${playerId}/unique-tournament/${uniqueTournamentId}/season/${seasonId}/statistics/overall`
   );
   const s = json.statistics || {};
-  const club = data.clubs.find((c) => c.name === "Al-Nassr");
+  const club = data.clubs.find((c) => c.id === "alnassr");
   if (!club) return false;
 
   const newGoals = alNassr.frozenGoals + (s.goals || 0);
@@ -56,7 +56,7 @@ async function updatePortugal(data) {
   const entry = (json.statistics || []).find((s) => s.team && s.team.id === portugal.teamId);
   if (!entry) return false;
 
-  const club = data.clubs.find((c) => c.name === "Portekiz Milli Takımı");
+  const club = data.clubs.find((c) => c.id === "portugal");
   if (!club) return false;
 
   // Not: bu endpoint asist vermiyor — asist alanı kasıtlı olarak dokunulmadan
@@ -96,14 +96,9 @@ async function main() {
     return;
   }
 
-  const today = new Date();
-  data.asOf = today.toISOString().slice(0, 10);
-  data.asOfDisplay = today.toLocaleDateString("tr-TR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+  data.asOf = new Date().toISOString().slice(0, 10);
+  // Not: yerelleştirilmiş görünen tarih (data.asOfDisplay diye ayrı bir alan
+  // YOK artık) build.mjs içinde her dil için data.asOf'tan yeniden üretilir.
 
   writeFileSync(dataPath, JSON.stringify(data, null, 2) + "\n");
   execSync("node scripts/build.mjs", { stdio: "inherit", cwd: root });
