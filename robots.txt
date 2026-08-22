@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.cr7ronaldogoalscoree.com/sitemap.xml
+Sitemap: https://www.ronaldogoalscore.com/sitemap.xml
