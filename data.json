@@ -54,7 +54,7 @@
     {
       "id": "alnassr",
       "apps": 141,
-      "goals": 127,
+      "goals": 133,
       "assists": 22,
       "approx": true,
       "live": true,
@@ -81,7 +81,8 @@
     "playerId": 750,
     "alNassr": {
       "frozenThroughSeason": "25/26",
-      "frozenGoals": 126,
+      "frozenGoals": 132,
+      "frozenGoalsNote": "126 (SportAPI7 rekabet-rekabet toplamı) yerine 132 kullanılıyor — IFFHS'in 2026-07-07 tarihli 976 toplamıyla (bkz. tr.wikipedia.org '500 veya daha fazla gol atan futbolcular listesi') karşılaştırılınca Al-Nassr'ın kupa/kıtasal (AFC Şampiyonlar Ligi, Arap Kulüpler Kupası, Süper Kupa) maçlarında SportAPI7'nin ~6 gol eksik verdiği ortaya çıktı. Karar: 2026-08-22, kullanıcı bildirimi üzerine.",
       "frozenAssists": 22,
       "frozenApps": 140,
       "currentSeason": {

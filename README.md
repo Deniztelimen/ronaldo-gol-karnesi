@@ -79,6 +79,15 @@ eklenerek periyodik olarak (ör. ayda bir) mutabakat yapılabilir. Daha sık/tam
 kapsamlı otomasyon isterseniz SportAPI7'de ücretli bir plana (PRO, $15/ay)
 geçmek gerekir.
 
+**Bilinen düzeltme (2026-08-22):** SportAPI7 üzerinden rekabet rekabet
+toplanan Al-Nassr golü (126) ile IFFHS'in 2026-07-07 tarihli toplamı (976 —
+bkz. [tr.wikipedia.org "500 veya daha fazla gol atan futbolcular listesi"](https://tr.wikipedia.org/wiki/500_veya_daha_fazla_gol_atan_futbolcular_listesi))
+karşılaştırılınca ~6 gollük bir fark bulundu — muhtemelen SportAPI7'nin Arap
+Kulüpler Kupası/Süper Kupa gibi daha az takip edilen turnuvalarda eksik
+verisi var. `frozenGoals` bu yüzden 126 değil **132** olarak ayarlandı
+(`frozenGoalsNote` alanında detay var). SportAPI7'nin kapsamı geliştirilirse
+veya IFFHS güncellenirse bu değer tekrar gözden geçirilmeli.
+
 ### Yeni sezon başladığında
 
 Suudi Pro Lig sezonu değiştiğinde (~her Ağustos), `data.json` içindeki
