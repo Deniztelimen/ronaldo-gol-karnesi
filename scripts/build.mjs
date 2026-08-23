@@ -99,9 +99,36 @@ function renderLangLinks(currentCode) {
     .map((l) => {
       const href = `${siteOrigin}/${l.path}`;
       const current = l.code === currentCode ? ' aria-current="true"' : "";
-      return `<a href="${href}"${current}><span>${l.flag}</span><span>${l.label}</span></a>`;
+      // Elle seçilen dil localStorage'a yazılır — auto-redirect script'i bir
+      // daha bu ziyaretçiyi tarayıcı diline göre başka yere yönlendirmez.
+      const onclick = ` onclick="try{localStorage.setItem('ronaldoLang','${l.code}')}catch(e){}"`;
+      return `<a href="${href}"${current}${onclick}><span>${l.flag}</span><span>${l.label}</span></a>`;
     })
     .join("\n    ");
+}
+
+const SUPPORTED_CODES = locales.map((l) => l.code);
+
+function renderAutoRedirectScript(locale) {
+  // Sadece kök (Türkçe) sayfada çalışır: doğrudan bir dil linkine (ör. /de/)
+  // tıklayan biri asla zorla başka yere yönlendirilmez, sadece "çıplak"
+  // ana sayfa ziyaretinde tarayıcı diline göre otomatik yönlendirme yapılır.
+  if (locale.code !== "tr") return "";
+  return `<script>
+(function () {
+  try {
+    var supported = ${JSON.stringify(SUPPORTED_CODES)};
+    var saved = localStorage.getItem("ronaldoLang");
+    if (saved) {
+      if (saved !== "tr" && supported.indexOf(saved) !== -1) location.replace("/" + saved + "/");
+      return;
+    }
+    var nav = (navigator.language || "en").toLowerCase().split("-")[0];
+    var target = supported.indexOf(nav) !== -1 ? nav : "en";
+    if (target !== "tr") location.replace("/" + target + "/");
+  } catch (e) {}
+})();
+</script>`;
 }
 
 function renderHreflangLinks() {
@@ -169,6 +196,7 @@ function buildLocale(locale) {
 
   const replacements = {
     "{{HTML_LANG}}": locale.code,
+    "{{AUTO_REDIRECT_SCRIPT}}": renderAutoRedirectScript(locale),
     "{{PAGE_TITLE}}": t.pageTitle,
     "{{META_DESCRIPTION}}": t.metaDescription,
     "{{CANONICAL_URL}}": `${siteOrigin}/${locale.path}`,
