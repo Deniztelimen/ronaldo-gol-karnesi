@@ -74,11 +74,12 @@ async function main() {
   }
 
   const data = JSON.parse(readFileSync(dataPath, "utf8"));
-  let changed = false;
+  let anySucceeded = false;
   const goalsBefore = data.clubs.reduce((sum, c) => sum + c.goals, 0);
 
   try {
-    if (await updateAlNassr(data)) changed = true;
+    await updateAlNassr(data);
+    anySucceeded = true;
   } catch (err) {
     console.error("Al-Nassr güncellemesi başarısız:", err.message);
   }
@@ -86,21 +87,27 @@ async function main() {
   const isWeeklyCheckDay = new Date().getUTCDay() === 1; // Pazartesi
   if (isWeeklyCheckDay) {
     try {
-      if (await updatePortugal(data)) changed = true;
+      await updatePortugal(data);
+      anySucceeded = true;
     } catch (err) {
       console.error("Portekiz güncellemesi başarısız:", err.message);
     }
   }
 
-  if (!changed) {
-    console.log("Değişiklik yok (veya bu çalıştırmada güncelleme başarısız oldu) — index.html yeniden üretilmiyor.");
+  if (!anySucceeded) {
+    // API'ye hiç ulaşılamadıysa (kota/ağ hatası vb.) "bugün itibarıyla"
+    // yazıp yanlış bir doğrulama izlenimi vermemek için hiçbir şeye
+    // dokunmadan çıkılır — tarih bir sonraki başarılı çalıştırmaya kadar
+    // olduğu gibi kalır.
+    console.log("Hiçbir kaynağa ulaşılamadı — data.json değiştirilmedi.");
     return;
   }
 
   const today = new Date().toISOString().slice(0, 10);
+  // "İtibarıyla" tarihi, en az bir kaynak başarıyla kontrol edildiği her
+  // çalıştırmada bugüne çekilir — sayılar değişmese bile "kontrol edildi,
+  // güncel" bilgisini taşır. Kullanıcı isteği: 2026-08-23.
   data.asOf = today;
-  // Not: yerelleştirilmiş görünen tarih (data.asOfDisplay diye ayrı bir alan
-  // YOK artık) build.mjs içinde her dil için data.asOf'tan yeniden üretilir.
 
   // "Son gol" tarihini ekstra bir API isteği YAPMADAN takip eder: toplam gol
   // sayısı bir önceki kontrole göre arttıysa, bu çalıştırmanın tarihi "son
