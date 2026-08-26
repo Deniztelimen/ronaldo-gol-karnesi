@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-08-25",
+  "asOf": "2026-08-26",
   "lastGoalDate": null,
   "milestoneTarget": 1000,
   "clubs": [
@@ -53,7 +53,7 @@
     },
     {
       "id": "alnassr",
-      "apps": 141,
+      "apps": 142,
       "goals": 133,
       "assists": 22,
       "approx": true,
