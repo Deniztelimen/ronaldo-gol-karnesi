@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-27",
+  "asOf": "2026-09-28",
   "lastGoalDate": "2026-09-23",
   "milestoneTarget": 1000,
   "clubs": [
@@ -64,7 +64,7 @@
     },
     {
       "id": "portugal",
-      "apps": 233,
+      "apps": 234,
       "goals": 146,
       "assists": 43,
       "approx": true,
